@@ -26,6 +26,10 @@ public class Breakdown {
     @Column(name = "faliure_name")
     String failureName;
 
+    @Column(name = "computer_name")
+    String computerName;
+
+
     @CreationTimestamp
     @Column(name = "failure_start", nullable = false, updatable = false)
     private LocalDateTime failureStartTime;
