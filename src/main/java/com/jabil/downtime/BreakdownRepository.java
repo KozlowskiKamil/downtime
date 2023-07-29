@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @EnableJpaAuditing
 public interface BreakdownRepository extends JpaRepository<Breakdown, Long> {
 
-    void findAllByFailureName();
+//    void findAllByFailureName();
 }
