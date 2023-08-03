@@ -16,7 +16,7 @@ public class FirebaseMessagingService {
     public String sendNotificationByToken(NotificationMessage notificationMessage) {
         Notification notification = Notification
                 .builder()
-                .setTitle(notificationMessage.getTitle())
+                .setTitle(notificationMessage.getComputerName())
                 .setBody(notificationMessage.getBody())
 //                .setImage(notificationMessage.getImage())
                 .build();

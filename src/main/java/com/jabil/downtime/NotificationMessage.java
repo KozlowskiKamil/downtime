@@ -11,8 +11,8 @@ import java.util.Map;
 @AllArgsConstructor
 public class NotificationMessage {
     private String recipientToken;
-    private String title;
-    private String body;
+    private String computerName;
+    private String failureName;
 //    private String image;
 //    private Map<String, String> data;
 
