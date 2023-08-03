@@ -15,6 +15,9 @@ public class BreakdownController {
 
     final String token = "dXccypV5QSuNnyqmHocZoA:APA91bGuVlBeFpjA9Mmnmg_ZBz_yNNqA1hye_26WbEiAbU9BYxiG0tOXGpDgjBfIgXmFBz4XLBBwoJX9jKG1C83NfFsGNisbfXOIQV6n6xGkvIZ62fAovZF0teJclr0jSMoq03uQ2sht";
 
+    final String token2 = "fpyPHgl-Tsez78NnFhmZ21:APA91bEjlpG-sTAJn_d_VqK2y9xKOktOE5q7WzwRBiHLOVCrt2Ai75uy-FS9S_LzTPPTRPgx0BUUT5D331Ta52Bm0hKA5M6u7eBjciTJyuBSpbE8gqsctMoRkw---3vZA9nMmcjLCW4L";
+
+
     private static final Logger logger = LoggerFactory.getLogger(BreakdownController.class);
 
     @Autowired
@@ -35,7 +38,7 @@ public class BreakdownController {
     public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdown) {
         Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
         logger.info("Dodano nową awarię");
-        firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token, breakdown.getComputerName(), breakdown.getFailureName()));
+        firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token2, breakdown.getComputerName(), breakdown.getFailureName()));
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 

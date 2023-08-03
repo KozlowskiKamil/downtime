@@ -29,10 +29,22 @@ public class Breakdown {
     @Column(name = "computer_name")
     String computerName;
 
+    @Column(name = "description")
+    String description;
+
+    @Column(name = "ongoing")
+    boolean ongoing;
+
+    @Column(name = "counter")
+    long counter;
 
     @CreationTimestamp
     @Column(name = "failure_start", nullable = false, updatable = false)
     private LocalDateTime failureStartTime;
+
+    @CreationTimestamp
+    @Column(name = "failure_end", nullable = false, updatable = false)
+    private LocalDateTime failureEndTime;
 
 
 }

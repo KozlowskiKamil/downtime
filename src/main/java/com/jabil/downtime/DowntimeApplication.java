@@ -29,6 +29,4 @@ public class DowntimeApplication {
 		SpringApplication.run(DowntimeApplication.class, args);
 	}
 
-
-
 }

@@ -17,7 +17,7 @@ public class FirebaseMessagingService {
         Notification notification = Notification
                 .builder()
                 .setTitle(notificationMessage.getComputerName())
-                .setBody(notificationMessage.getBody())
+                .setBody(notificationMessage.getFailureName())
 //                .setImage(notificationMessage.getImage())
                 .build();
         Message message = Message
