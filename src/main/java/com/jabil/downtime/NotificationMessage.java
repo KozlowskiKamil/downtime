@@ -13,13 +13,12 @@ public class NotificationMessage {
     private String recipientToken;
     private String title;
     private String body;
-    private String image;
-    private Map<String, String> data;
+//    private String image;
+//    private Map<String, String> data;
 
-    public NotificationMessage(String recipientToken, String title, String body, String image) {
-        this.recipientToken = recipientToken;
-        this.title = title;
-        this.body = body;
-        this.image = image;
-    }
+//    public NotificationMessage(String recipientToken, String title, String body) {
+//        this.recipientToken = recipientToken;
+//        this.title = title;
+//        this.body = body;
+//    }
 }

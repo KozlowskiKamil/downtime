@@ -32,10 +32,10 @@ public class BreakdownController {
     }
 
     @PostMapping("/breakdown")
-    public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdown, NotificationMessage notificationMessage) {
+    public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdown) {
         Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
         logger.info("Dodano nową awarię");
-        firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token,"Title", "body","",new HashMap<>()));
+        firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token, breakdown.getComputerName(), breakdown.getFailureName()));
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
