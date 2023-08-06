@@ -1,4 +1,4 @@
-package com.jabil.downtime;
+package com.jabil.downtime.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,6 @@
 package com.jabil.downtime;
 
+import com.jabil.downtime.model.NotificationMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

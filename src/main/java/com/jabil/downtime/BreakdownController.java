@@ -1,5 +1,7 @@
 package com.jabil.downtime;
 
+import com.jabil.downtime.model.Breakdown;
+import com.jabil.downtime.model.NotificationMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -49,13 +50,14 @@ public class BreakdownController {
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
-    @PatchMapping("/breakdown/{id}")
-    public ResponseEntity<Breakdown> stopBreakdown(@PathVariable("id") Long id, @RequestBody Breakdown breakdown) {
+    @PatchMapping("/breakdown")
+    public ResponseEntity<Breakdown> stopBreakdown(@RequestBody Breakdown breakdown) {
         breakdown.getId();
         breakdown.setFailureEndTime(LocalDateTime.now());
         breakdown.setOngoing(false);
         breakdown.setDescription(breakdown.getDescription());
         Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
+//        breakdownService.calculateCounter(breakdown);
         logger.info("Zamknięto awarię");
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }

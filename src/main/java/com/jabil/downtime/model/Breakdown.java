@@ -1,4 +1,4 @@
-package com.jabil.downtime;
+package com.jabil.downtime.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
