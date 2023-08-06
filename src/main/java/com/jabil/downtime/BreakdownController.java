@@ -47,7 +47,6 @@ public class BreakdownController {
     public ResponseEntity<BreakdownDto> addBreakdown(@RequestBody BreakdownDto breakdownRequest) {
         String computerName = breakdownRequest.getComputerName();
         String failureName = breakdownRequest.getFailureName();
-
         BreakdownDto breakdown = new BreakdownDto(failureName, computerName);
         BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
         logger.info("Dodano nową awarię na testerze: " + breakdown.getComputerName());
@@ -56,21 +55,11 @@ public class BreakdownController {
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
-//    @PatchMapping("/breakdown")
-//    public ResponseEntity<BreakdownDto> stopBreakdown(@RequestBody BreakdownDto breakdown) {
-//        breakdownService.updateBreakedown(breakdown);
-//        BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
-//
-//
-//        logger.info("Zamknięto awarię o id: " + breakdown.getId());
-//        return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
-//    }
-
-
-    @PatchMapping("/breakdown") // TODO: 06.08.2023 dodać http
-    public void stopBreakdown(@RequestBody BreakdownDto breakdown) {
+    @PatchMapping("/breakdown")
+    public ResponseEntity<BreakdownDto> stopBreakdown(@RequestBody BreakdownDto breakdown) {
         breakdownService.updateBreakedown(breakdown);
         logger.info("Zamknięto awarię o id: " + breakdown.getId());
+        return new ResponseEntity<>(breakdown, HttpStatus.OK);
     }
 
     @GetMapping("/findall")
