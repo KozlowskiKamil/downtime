@@ -11,20 +11,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
 public class BreakdownController {
 
+    private static final Logger logger = LoggerFactory.getLogger(BreakdownController.class);
     final String token1 = "e3e_TLX_TxSK3ii63nqLjW:APA91bFSaFIEMzBTpRmu7AN0uOrfDwOauYA53dDwWZr5UA9bOJ0EG4j-magFdd4TrnbDgO-LhClrL2V-kxcre5Qo8hRValn6EoRYLq3NpdEktanqv_6o_WnlZyrTa3Yrj6I59pCjoF16";
     final String token2 = "e6e8Sxz2SL2lQyS1AF3XBd:APA91bF_CYulgRdobkmHuimqO0THEaRQnFA8Bp_IvCf4kslB5m_cQK73FLNHZpRvlsoCOpc9EB94pXsCtoWBH4l8IqJyKVTogIW3K0EdgSAvu8Omfhbe8mJvUHqtl2HfUoALn9X1q3s-";
     final String token3 = "";
     final String token4 = "";
-
-
-    private static final Logger logger = LoggerFactory.getLogger(BreakdownController.class);
-
     @Autowired
     private final BreakdownMapper breakdownMapper;
 
