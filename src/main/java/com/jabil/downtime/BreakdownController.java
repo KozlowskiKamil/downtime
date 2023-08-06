@@ -1,5 +1,7 @@
 package com.jabil.downtime;
 
+import com.jabil.downtime.dto.BreakdownDto;
+import com.jabil.downtime.mapper.BreakdownMapper;
 import com.jabil.downtime.model.Breakdown;
 import com.jabil.downtime.model.NotificationMessage;
 import org.slf4j.Logger;
@@ -24,6 +26,9 @@ public class BreakdownController {
     private static final Logger logger = LoggerFactory.getLogger(BreakdownController.class);
 
     @Autowired
+    private final BreakdownMapper breakdownMapper;
+
+    @Autowired
     private final BreakdownService breakdownService;
 
     @Autowired
@@ -32,33 +37,36 @@ public class BreakdownController {
     @Autowired
     FirebaseMessagingService firebaseMessagingService;
 
-    public BreakdownController(BreakdownService breakdownService, BreakdownRepository breakdownRepository) {
+    public BreakdownController(BreakdownMapper breakdownMapper, BreakdownService breakdownService, BreakdownRepository breakdownRepository) {
+        this.breakdownMapper = breakdownMapper;
         this.breakdownService = breakdownService;
         this.breakdownRepository = breakdownRepository;
     }
 
     @PostMapping("/breakdown")
-    public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdownRequest) {
+    public ResponseEntity<BreakdownDto> addBreakdown(@RequestBody BreakdownDto breakdownRequest) {
         String computerName = breakdownRequest.getComputerName();
         String failureName = breakdownRequest.getFailureName();
 
-        Breakdown breakdown = new Breakdown(failureName, computerName);
-        Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
-        logger.info("Dodano nową awarię");
+        BreakdownDto breakdown = new BreakdownDto(failureName, computerName);
+        BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
+        logger.info("Dodano nową awarię na testerze: " + breakdown.getComputerName());
         firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token1, breakdown.getComputerName(), breakdown.getFailureName()));
         firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token2, breakdown.getComputerName(), breakdown.getFailureName()));
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
     @PatchMapping("/breakdown")
-    public ResponseEntity<Breakdown> stopBreakdown(@RequestBody Breakdown breakdown) {
-        breakdown.getId();
+    public ResponseEntity<BreakdownDto> stopBreakdown(@RequestBody BreakdownDto breakdown) {
+
         breakdown.setFailureEndTime(LocalDateTime.now());
         breakdown.setOngoing(false);
         breakdown.setDescription(breakdown.getDescription());
-        Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
+        BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
+        breakdownService.updateBreakedown(breakdown);
+
 //        breakdownService.calculateCounter(breakdown);
-        logger.info("Zamknięto awarię");
+        logger.info("Zamknięto awarię o id: " + breakdown.getId());
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
