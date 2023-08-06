@@ -6,6 +6,8 @@ import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,13 +38,26 @@ public class BreakdownService {
 
     public void updateBreakedown(BreakdownDto breakdownDto) {
         Optional<Breakdown> breakdownById = breakdownRepository.findById(breakdownDto.getId());
+
         if (!breakdownById.isPresent()) {
             throw new IllegalArgumentException("Brak awarii o podanym id");
         }
-        Breakdown toUpdate = breakdownById.get();
-        toUpdate.setComputerName(breakdownDto.getComputerName());
 
-        breakdownRepository.save(toUpdate);
+        Breakdown toUpdate = breakdownById.get();
+        System.out.println("toUpdate = " + toUpdate);
+
+        toUpdate.setFailureEndTime(LocalDateTime.now());
+        toUpdate.setDescription(breakdownDto.getDescription());
+        toUpdate.setOngoing(false);
+
+        LocalDateTime failureStartTime = toUpdate.getFailureStartTime();
+        LocalDateTime failureEndTime = toUpdate.getFailureEndTime();
+        if (failureEndTime != null) {
+            Duration duration = Duration.between(failureStartTime, failureEndTime);
+            toUpdate.setCounter(duration.toMinutes());
+        }
+
+            breakdownRepository.save(toUpdate);
     }
 
 

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -31,5 +32,17 @@ public class BreakdownDto {
         this.counter = 0L;
         this.failureStartTime = LocalDateTime.now();
         this.failureEndTime = null;
+    }
+
+    public void setFailureEndTime(LocalDateTime failureEndTime) {
+        this.failureEndTime = failureEndTime;
+        calculateCounter();
+    }
+
+    private void calculateCounter() {
+        if (failureEndTime != null) {
+            Duration duration = Duration.between(failureStartTime, failureEndTime);
+            this.counter = duration.toMinutes();
+        }
     }
 }

@@ -56,18 +56,21 @@ public class BreakdownController {
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
-    @PatchMapping("/breakdown")
-    public ResponseEntity<BreakdownDto> stopBreakdown(@RequestBody BreakdownDto breakdown) {
+//    @PatchMapping("/breakdown")
+//    public ResponseEntity<BreakdownDto> stopBreakdown(@RequestBody BreakdownDto breakdown) {
+//        breakdownService.updateBreakedown(breakdown);
+//        BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
+//
+//
+//        logger.info("Zamknięto awarię o id: " + breakdown.getId());
+//        return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
+//    }
 
-        breakdown.setFailureEndTime(LocalDateTime.now());
-        breakdown.setOngoing(false);
-        breakdown.setDescription(breakdown.getDescription());
-        BreakdownDto savedBreakdown = breakdownService.saveBreakdown(breakdown);
+
+    @PatchMapping("/breakdown") // TODO: 06.08.2023 dodać http
+    public void stopBreakdown(@RequestBody BreakdownDto breakdown) {
         breakdownService.updateBreakedown(breakdown);
-
-//        breakdownService.calculateCounter(breakdown);
         logger.info("Zamknięto awarię o id: " + breakdown.getId());
-        return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
     @GetMapping("/findall")
