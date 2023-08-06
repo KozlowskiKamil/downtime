@@ -1,4 +1,4 @@
-package com.jabil.downtime;
+package com.jabil.downtime.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

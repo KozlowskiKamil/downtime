@@ -1,5 +1,7 @@
 package com.jabil.downtime;
 
+import com.jabil.downtime.model.Breakdown;
+import com.jabil.downtime.model.NotificationMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -36,11 +38,27 @@ public class BreakdownController {
     }
 
     @PostMapping("/breakdown")
-    public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdown) {
+    public ResponseEntity<Breakdown> addBreakdown(@RequestBody Breakdown breakdownRequest) {
+        String computerName = breakdownRequest.getComputerName();
+        String failureName = breakdownRequest.getFailureName();
+
+        Breakdown breakdown = new Breakdown(failureName, computerName);
         Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
         logger.info("Dodano nową awarię");
         firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token1, breakdown.getComputerName(), breakdown.getFailureName()));
         firebaseMessagingService.sendNotificationByToken(new NotificationMessage(token2, breakdown.getComputerName(), breakdown.getFailureName()));
+        return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/breakdown")
+    public ResponseEntity<Breakdown> stopBreakdown(@RequestBody Breakdown breakdown) {
+        breakdown.getId();
+        breakdown.setFailureEndTime(LocalDateTime.now());
+        breakdown.setOngoing(false);
+        breakdown.setDescription(breakdown.getDescription());
+        Breakdown savedBreakdown = breakdownService.saveBreakdown(breakdown);
+//        breakdownService.calculateCounter(breakdown);
+        logger.info("Zamknięto awarię");
         return new ResponseEntity<>(savedBreakdown, HttpStatus.CREATED);
     }
 
