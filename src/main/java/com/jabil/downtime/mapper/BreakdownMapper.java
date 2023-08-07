@@ -15,6 +15,7 @@ public class BreakdownMapper {
                 .description(breakdownDto.getDescription())
                 .ongoing(breakdownDto.isOngoing())
                 .counter(breakdownDto.getCounter())
+                .waitingTime(breakdownDto.getWaitingTime())
                 .failureStartTime(breakdownDto.getFailureStartTime())
                 .failureEndTime(breakdownDto.getFailureEndTime())
                 .build();
@@ -29,6 +30,7 @@ public class BreakdownMapper {
                 .description(breakdown.getDescription())
                 .ongoing(breakdown.isOngoing())
                 .counter(breakdown.getCounter())
+                .waitingTime(breakdown.getWaitingTime())
                 .failureStartTime(breakdown.getFailureStartTime())
                 .failureEndTime(breakdown.getFailureEndTime())
                 .build();

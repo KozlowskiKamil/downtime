@@ -54,6 +54,7 @@ public class BreakdownService {
         toUpdate.setFailureEndTime(LocalDateTime.now());
         toUpdate.setDescription(breakdownDto.getDescription());
         toUpdate.setOngoing(false);
+        toUpdate.setWaitingTime(breakdownDto.getWaitingTime());
 
         LocalDateTime failureStartTime = toUpdate.getFailureStartTime();
         LocalDateTime failureEndTime = toUpdate.getFailureEndTime();

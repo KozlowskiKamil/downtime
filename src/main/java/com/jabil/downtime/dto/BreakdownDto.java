@@ -1,5 +1,6 @@
 package com.jabil.downtime.dto;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +22,9 @@ public class BreakdownDto {
     private String description;
     private boolean ongoing;
     private long counter;
+    private long waitingTime;
     private LocalDateTime failureStartTime;
+
     private LocalDateTime failureEndTime;
 
 
@@ -30,6 +34,7 @@ public class BreakdownDto {
         this.description = null;
         this.ongoing = true;
         this.counter = 0L;
+        this.waitingTime = 0L;
         this.failureStartTime = LocalDateTime.now();
         this.failureEndTime = null;
     }

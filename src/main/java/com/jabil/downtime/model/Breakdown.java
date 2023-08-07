@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -40,6 +41,9 @@ public class Breakdown {
 
     @Column(name = "counter")
     private long counter;
+
+    @Column(name = "waiting_time")
+    private long waitingTime;
 
     @CreationTimestamp
     @Column(name = "failure_start", nullable = false, updatable = false)
