@@ -31,9 +31,14 @@ public class BreakdownService {
         return breakdownMapper.toDto(breakdownById);
     }
 
+//    public BreakdownDto saveBreakdown(BreakdownDto breakdownDto) {
+//        breakdownRepository.save(breakdownMapper.fromDto(breakdownDto));
+//        return breakdownDto;
+//    }
+
     public BreakdownDto saveBreakdown(BreakdownDto breakdownDto) {
-        breakdownRepository.save(breakdownMapper.fromDto(breakdownDto));
-        return breakdownDto;
+        Breakdown savedBreakdown = breakdownRepository.save(breakdownMapper.fromDto(breakdownDto));
+        return breakdownMapper.toDto(savedBreakdown);
     }
 
     public void updateBreakedown(BreakdownDto breakdownDto) {
