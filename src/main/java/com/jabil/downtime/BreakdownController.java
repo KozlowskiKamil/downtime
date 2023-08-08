@@ -21,12 +21,11 @@ public class BreakdownController {
     final String token2 = "e6e8Sxz2SL2lQyS1AF3XBd:APA91bF_CYulgRdobkmHuimqO0THEaRQnFA8Bp_IvCf4kslB5m_cQK73FLNHZpRvlsoCOpc9EB94pXsCtoWBH4l8IqJyKVTogIW3K0EdgSAvu8Omfhbe8mJvUHqtl2HfUoALn9X1q3s-";
     final String token3 = "";
     final String token4 = "";
+
     @Autowired
     private final BreakdownMapper breakdownMapper;
-
     @Autowired
     private final BreakdownService breakdownService;
-
     @Autowired
     private final BreakdownRepository breakdownRepository;
 
@@ -37,7 +36,7 @@ public class BreakdownController {
         this.breakdownMapper = breakdownMapper;
         this.breakdownService = breakdownService;
         this.breakdownRepository = breakdownRepository;
-    }
+    }  //todo wyrzucic konstruktor zastapic adnotacja
 
     @PostMapping("/breakdown")
     public ResponseEntity<BreakdownDto> addBreakdown(@RequestBody BreakdownDto breakdownRequest) {
