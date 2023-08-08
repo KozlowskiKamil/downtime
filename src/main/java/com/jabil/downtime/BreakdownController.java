@@ -57,6 +57,16 @@ public class BreakdownController {
         return new ResponseEntity<>(breakdown, HttpStatus.OK);
     }
 
+    @PostMapping("/assign")
+    public ResponseEntity<String> assignTechnicianToBreakdown(@RequestParam Long technicianId, @RequestParam Long breakdownId) {
+        try {
+            breakdownService.assignTechnicianToBreakdown(technicianId, breakdownId);
+            return ResponseEntity.ok("Przypisano technika do awarii.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @GetMapping("/findall")
     public List<Breakdown> findAll() {
         return breakdownRepository.findAll();
