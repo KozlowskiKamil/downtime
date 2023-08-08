@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,5 +30,27 @@ public class TechnicianService {
         Technician saveTechnician = technicianRepository.save(technicianMapper.fromDto(technicianDto));
         return technicianMapper.toDto(saveTechnician);
     }
+
+    public TechnicianDto findById(Long id) {
+        Technician technicianById = technicianRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Brak technika o takim id"));
+        return technicianMapper.toDto(technicianById);
+    }
+
+    public void UpdateTechnican(TechnicianDto technicianDto) {
+        Optional<Technician> technicianById = technicianRepository.findById(technicianDto.getId());
+
+        if (!technicianById.isPresent()) {
+            throw new IllegalArgumentException("Brak technika o takim id");
+        }
+        Technician tuUpdate = technicianById.get();
+        tuUpdate.setName(technicianDto.getName());
+        tuUpdate.setBadgeNumber(technicianDto.getBadgeNumber());
+        technicianRepository.save(tuUpdate);
+    }
+
+    public void deleteById(Long id) {
+        technicianRepository.deleteById(id);
+    }
+
 
 }

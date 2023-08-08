@@ -49,8 +49,6 @@ public class BreakdownService {
         }
 
         Breakdown toUpdate = breakdownById.get();
-        System.out.println("toUpdate = " + toUpdate);
-
         toUpdate.setFailureEndTime(LocalDateTime.now());
         toUpdate.setDescription(breakdownDto.getDescription());
         toUpdate.setOngoing(false);
@@ -63,7 +61,11 @@ public class BreakdownService {
             toUpdate.setCounter(duration.toMinutes());
         }
 
-            breakdownRepository.save(toUpdate);
+        breakdownRepository.save(toUpdate);
+    }
+
+    public void deleteById(Long id) {
+        breakdownRepository.deleteById(id);
     }
 
 }
