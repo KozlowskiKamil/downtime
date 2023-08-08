@@ -1,15 +1,21 @@
 package com.jabil.downtime.model;
 
+import com.jabil.downtime.dto.BreakdownDto;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Technician {
+
+    @OneToMany(mappedBy = "technician", cascade = CascadeType.ALL)
+    private List<Breakdown> breakdownList = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
