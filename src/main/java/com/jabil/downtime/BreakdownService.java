@@ -26,7 +26,7 @@ public class BreakdownService {
 
 
     @Transactional
-    public void assignTechnicianToBreakdown(Long technicianId, Long breakdownId) {
+    public void assignTechnicianToBreakdown(Long technicianId, Long breakdownId, Long waitingTime) {
         log.info("Adding technican to breakdown by id: {}", technicianId);
 
         Technician technician = technicianRepository.findById(technicianId)
@@ -36,6 +36,7 @@ public class BreakdownService {
                 .orElseThrow(() -> new IllegalArgumentException("Breakdown with ID " + breakdownId + " not found"));
 
         breakdown.setTechnician(technician);
+        breakdown.setWaitingTime(waitingTime);
         breakdownRepository.save(breakdown);
     }
 

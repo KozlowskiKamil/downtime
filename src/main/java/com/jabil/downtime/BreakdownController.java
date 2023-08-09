@@ -58,9 +58,9 @@ public class BreakdownController {
     }
 
     @PostMapping("/assign")
-    public ResponseEntity<String> assignTechnicianToBreakdown(@RequestParam Long technicianId, @RequestParam Long breakdownId) {
+    public ResponseEntity<String> assignTechnicianToBreakdown(@RequestParam Long technicianId, @RequestParam Long breakdownId, @RequestParam Long waitingTime) {
         try {
-            breakdownService.assignTechnicianToBreakdown(technicianId, breakdownId);
+            breakdownService.assignTechnicianToBreakdown(technicianId, breakdownId, waitingTime);
             return ResponseEntity.ok("Przypisano technika do awarii.");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
