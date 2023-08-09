@@ -36,6 +36,12 @@ public class TechnicianService {
         return technicianMapper.toDto(technicianById);
     }
 
+    public TechnicianDto findByBadgeNumber(int badgeNumber) {
+        Technician technicianByBadgeNumber = technicianRepository.findByBadgeNumber(badgeNumber);
+        return technicianMapper.toDto(technicianByBadgeNumber);
+    }
+
+
     public void UpdateTechnican(TechnicianDto technicianDto) {
         Optional<Technician> technicianById = technicianRepository.findById(technicianDto.getId());
 
