@@ -1,6 +1,7 @@
 package com.jabil.downtime;
 
 import com.jabil.downtime.dto.BreakdownDto;
+import com.jabil.downtime.dto.TechnicianDto;
 import com.jabil.downtime.mapper.BreakdownMapper;
 import com.jabil.downtime.model.Breakdown;
 import com.jabil.downtime.model.NotificationMessage;
@@ -23,19 +24,16 @@ public class BreakdownController {
     final String token4 = "";
 
     @Autowired
-    private final BreakdownMapper breakdownMapper;
-    @Autowired
     private final BreakdownService breakdownService;
-    @Autowired
-    private final BreakdownRepository breakdownRepository;
 
+    @Autowired
+    private final TechnicianService technicianService;
     @Autowired
     FirebaseMessagingService firebaseMessagingService;
 
-    public BreakdownController(BreakdownMapper breakdownMapper, BreakdownService breakdownService, BreakdownRepository breakdownRepository) {
-        this.breakdownMapper = breakdownMapper;
+    public BreakdownController(BreakdownService breakdownService, TechnicianService technicianService) {
         this.breakdownService = breakdownService;
-        this.breakdownRepository = breakdownRepository;
+        this.technicianService = technicianService;
     }  //todo wyrzucic konstruktor zastapic adnotacja
 
     @PostMapping("/breakdown")
@@ -57,8 +55,19 @@ public class BreakdownController {
         return new ResponseEntity<>(breakdown, HttpStatus.OK);
     }
 
+    @PostMapping("/assign")
+    public ResponseEntity<String> assignTechnicianToBreakdown(@RequestParam Long technicianId, @RequestParam Long breakdownId, @RequestParam Long waitingTime) {
+        try {
+            TechnicianDto technicianServiceById = technicianService.findById(technicianId);
+            breakdownService.assignTechnicianToBreakdown(technicianId, breakdownId, waitingTime);
+            return ResponseEntity.ok("Przypisano technika " + technicianServiceById.getName() + " do awarii.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @GetMapping("/findall")
-    public List<Breakdown> findAll() {
-        return breakdownRepository.findAll();
+    public List<BreakdownDto> findAll() {
+        return breakdownService.findAll();
     }
 }

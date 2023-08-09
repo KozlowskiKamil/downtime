@@ -3,7 +3,10 @@ package com.jabil.downtime;
 import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.mapper.BreakdownMapper;
 import com.jabil.downtime.model.Breakdown;
+import com.jabil.downtime.model.Technician;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -12,12 +15,31 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BreakdownService {
 
     private final BreakdownRepository breakdownRepository;
     private final BreakdownMapper breakdownMapper;
+    private final TechnicianRepository technicianRepository;
+
+
+    @Transactional
+    public void assignTechnicianToBreakdown(Long technicianId, Long breakdownId, Long waitingTime) {
+        log.info("Adding technican to breakdown by id: {}", technicianId);
+
+        Technician technician = technicianRepository.findById(technicianId)
+                .orElseThrow(() -> new IllegalArgumentException("Technician with ID " + technicianId + " not found"));
+
+        Breakdown breakdown = breakdownRepository.findById(breakdownId)
+                .orElseThrow(() -> new IllegalArgumentException("Breakdown with ID " + breakdownId + " not found"));
+
+        breakdown.setTechnician(technician);
+        breakdown.setWaitingTime(waitingTime);
+        breakdownRepository.save(breakdown);
+    }
+
 
     public List<BreakdownDto> findAll() {
         return breakdownRepository.findAll()

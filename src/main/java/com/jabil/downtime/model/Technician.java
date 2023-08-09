@@ -1,5 +1,6 @@
 package com.jabil.downtime.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +17,7 @@ import java.util.List;
 @Builder
 public class Technician {
 
+    @JsonIgnore
     @OneToMany(mappedBy = "technician", cascade = CascadeType.ALL)
     private List<Breakdown> breakdownList = new ArrayList<>();
 
