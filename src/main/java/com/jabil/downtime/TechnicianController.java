@@ -38,6 +38,9 @@ public class TechnicianController {
     @PostMapping("/checkbadgenumber")
     public ResponseEntity<TechnicianDto> findTechnician(@RequestParam int badgeNumber) {
         TechnicianDto byBadgeNumber = technicianService.findByBadgeNumber(badgeNumber);
+        if (byBadgeNumber == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(byBadgeNumber, HttpStatus.OK);
     }
 }

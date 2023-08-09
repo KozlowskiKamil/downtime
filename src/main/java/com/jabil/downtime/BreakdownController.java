@@ -2,9 +2,9 @@ package com.jabil.downtime;
 
 import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.dto.TechnicianDto;
-import com.jabil.downtime.mapper.BreakdownMapper;
 import com.jabil.downtime.model.Breakdown;
 import com.jabil.downtime.model.NotificationMessage;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class BreakdownController {
 
     private static final Logger logger = LoggerFactory.getLogger(BreakdownController.class);
@@ -27,14 +28,13 @@ public class BreakdownController {
     private final BreakdownService breakdownService;
 
     @Autowired
+    private final BreakdownRepository breakdownRepository;
+
+    @Autowired
     private final TechnicianService technicianService;
     @Autowired
-    FirebaseMessagingService firebaseMessagingService;
+    private final FirebaseMessagingService firebaseMessagingService;
 
-    public BreakdownController(BreakdownService breakdownService, TechnicianService technicianService) {
-        this.breakdownService = breakdownService;
-        this.technicianService = technicianService;
-    }  //todo wyrzucic konstruktor zastapic adnotacja
 
     @PostMapping("/breakdown")
     public ResponseEntity<BreakdownDto> addBreakdown(@RequestBody BreakdownDto breakdownRequest) {
@@ -67,7 +67,7 @@ public class BreakdownController {
     }
 
     @GetMapping("/findall")
-    public List<BreakdownDto> findAll() {
-        return breakdownService.findAll();
+    public List<Breakdown> findAll() {
+        return breakdownRepository.findAll();
     }
 }

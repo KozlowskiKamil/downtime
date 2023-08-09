@@ -28,7 +28,7 @@ public class Technician {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "badge_number")
+    @Column(name = "badge_number", unique = true)
     private int badgeNumber;
 
 }

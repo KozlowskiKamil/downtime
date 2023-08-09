@@ -16,6 +16,9 @@ public class TechnicianMapper {
     }
 
     public TechnicianDto toDto(Technician technician) {
+        if (technician == null) {
+            return null;
+        }
         return TechnicianDto.builder()
                 .id(technician.getId())
                 .badgeNumber(technician.getBadgeNumber())
