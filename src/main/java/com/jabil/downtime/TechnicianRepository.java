@@ -11,4 +11,5 @@ public interface TechnicianRepository extends JpaRepository<Technician , Long> {
 
 
     Technician findByBadgeNumber(int badgeNumber);
+
 }
