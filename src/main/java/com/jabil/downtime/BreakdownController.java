@@ -4,6 +4,7 @@ import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.dto.TechnicianDto;
 import com.jabil.downtime.model.Breakdown;
 import com.jabil.downtime.model.NotificationMessage;
+import com.jabil.downtime.model.Technician;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,9 @@ public class BreakdownController {
 
     @Autowired
     private final BreakdownService breakdownService;
+
+    @Autowired
+    private final TechnicianRepository technicianRepository;
 
     @Autowired
     private final BreakdownRepository breakdownRepository;
@@ -54,6 +58,28 @@ public class BreakdownController {
         breakdownService.updateBreakedown(breakdown);
         logger.info("Zamknięto awarię o id: " + breakdown.getId());
         return new ResponseEntity<>(breakdown, HttpStatus.OK);
+    }
+
+
+    @PatchMapping("/breakdownclose")
+    public ResponseEntity<BreakdownDto> closeBreakdown(@RequestBody BreakdownDto breakdown) {
+        BreakdownDto byId = breakdownService.findById(breakdown.getId());
+        long waitingTime = byId.getWaitingTime();
+        if (waitingTime == 0) {
+            waitingTime = breakdown.getWaitingTime();
+        }
+        TechnicianDto byBadgeNumber = technicianService.findByBadgeNumber(Integer.valueOf(breakdown.getFailureName()));
+        if (byBadgeNumber != null) {
+            breakdown.setWaitingTime(waitingTime);
+            Technician technicianServiceById = technicianRepository.findByBadgeNumber(Integer.valueOf(breakdown.getFailureName()));
+            breakdownService.assignTechnicianToBreakdown(technicianServiceById.getId(), breakdown.getId(), waitingTime);
+            logger.info("Zamknięto awarię o id: " + breakdown.getId());
+            breakdownService.updateBreakedown(breakdown);
+            return new ResponseEntity<>(breakdown, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(breakdown, HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @PostMapping("/assign")
