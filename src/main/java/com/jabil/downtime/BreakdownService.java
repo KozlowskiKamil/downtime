@@ -29,11 +29,9 @@ public class BreakdownService {
     public void assignTechnicianToBreakdown(Long technicianId, Long breakdownId, Long waitingTime) {
         log.info("Adding technican to breakdown by id: {}", technicianId);
 
-        Technician technician = technicianRepository.findById(technicianId)
-                .orElseThrow(() -> new IllegalArgumentException("Technician with ID " + technicianId + " not found"));
+        Technician technician = technicianRepository.findById(technicianId).orElseThrow(() -> new IllegalArgumentException("Technician with ID " + technicianId + " not found"));
 
-        Breakdown breakdown = breakdownRepository.findById(breakdownId)
-                .orElseThrow(() -> new IllegalArgumentException("Breakdown with ID " + breakdownId + " not found"));
+        Breakdown breakdown = breakdownRepository.findById(breakdownId).orElseThrow(() -> new IllegalArgumentException("Breakdown with ID " + breakdownId + " not found"));
 
         breakdown.setTechnician(technician);
         breakdown.setWaitingTime(waitingTime);
@@ -42,10 +40,7 @@ public class BreakdownService {
 
 
     public List<BreakdownDto> findAll() {
-        return breakdownRepository.findAll()
-                .stream()
-                .map(breakdownMapper::toDto)
-                .collect(Collectors.toList());
+        return breakdownRepository.findAll().stream().map(breakdownMapper::toDto).collect(Collectors.toList());
     }
 
     public BreakdownDto findById(Long id) {
@@ -69,25 +64,32 @@ public class BreakdownService {
         if (!breakdownById.isPresent()) {
             throw new IllegalArgumentException("Brak awarii o podanym id");
         }
-
         Breakdown toUpdate = breakdownById.get();
         toUpdate.setFailureEndTime(LocalDateTime.now());
         toUpdate.setDescription(breakdownDto.getDescription());
         toUpdate.setOngoing(false);
         toUpdate.setWaitingTime(breakdownDto.getWaitingTime());
-
         LocalDateTime failureStartTime = toUpdate.getFailureStartTime();
         LocalDateTime failureEndTime = toUpdate.getFailureEndTime();
         if (failureEndTime != null) {
             Duration duration = Duration.between(failureStartTime, failureEndTime);
             toUpdate.setCounter(duration.toMinutes());
         }
-
         breakdownRepository.save(toUpdate);
     }
 
     public void deleteById(Long id) {
         breakdownRepository.deleteById(id);
     }
+
+
+    public List<Breakdown> findAllByOngoing(boolean ongoing) {
+        return breakdownRepository.findAllByOngoing(ongoing);
+    }
+
+    public List<Breakdown> findAllByComputerNameAndFailureName(String computerName, String failureName) {
+        return breakdownRepository.findAllByComputerNameAndFailureName(computerName, failureName);
+    }
+
 
 }

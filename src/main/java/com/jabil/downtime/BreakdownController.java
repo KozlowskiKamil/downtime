@@ -71,4 +71,20 @@ public class BreakdownController {
     public List<Breakdown> findAll() {
         return breakdownRepository.findAll();
     }
+
+
+    @GetMapping("/ongoing")
+    public List<Breakdown> findAllOngoing() {
+        return breakdownRepository.findAllByOngoing(true);
+    }
+
+    @GetMapping("/ended")
+    public List<Breakdown> findAllEnded() {
+        return breakdownRepository.findAllByOngoing(false);
+    }
+
+    @GetMapping("/samefailure/{computerName}/{failureName}")
+    public List<Breakdown> findAllByComputerNameAndFailureName(@PathVariable(value = "computerName") String computerName, @PathVariable(value = "failureName") String failureName) {
+        return breakdownRepository.findAllByComputerNameAndFailureName(computerName, failureName);
+    }
 }
