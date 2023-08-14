@@ -15,6 +15,6 @@ public interface BreakdownRepository extends JpaRepository<Breakdown, Long> {
 
         List<Breakdown> findAllByOngoing(boolean ongoing);
 
-        List<Breakdown> findAllByComputerNameAndFailureName(String computerName , String failureName);
+        List<Breakdown> findAllByComputerNameAndFailureNameOrderByFailureStartTimeDesc(String computerName , String failureName);
 
 }

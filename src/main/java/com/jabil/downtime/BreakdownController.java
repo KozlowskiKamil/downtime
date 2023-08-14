@@ -111,6 +111,6 @@ public class BreakdownController {
 
     @GetMapping("/samefailure/{computerName}/{failureName}")
     public List<Breakdown> findAllByComputerNameAndFailureName(@PathVariable(value = "computerName") String computerName, @PathVariable(value = "failureName") String failureName) {
-        return breakdownRepository.findAllByComputerNameAndFailureName(computerName, failureName);
+        return breakdownRepository.findAllByComputerNameAndFailureNameOrderByFailureStartTimeDesc(computerName, failureName);
     }
 }

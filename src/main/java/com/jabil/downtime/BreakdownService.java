@@ -88,7 +88,7 @@ public class BreakdownService {
     }
 
     public List<Breakdown> findAllByComputerNameAndFailureName(String computerName, String failureName) {
-        return breakdownRepository.findAllByComputerNameAndFailureName(computerName, failureName);
+        return breakdownRepository.findAllByComputerNameAndFailureNameOrderByFailureStartTimeDesc(computerName, failureName);
     }
 
 
