@@ -44,3 +44,8 @@ a.sociallink:hover {
     max-height: 400px; /* Ustaw maksymalną wysokość listy */
     overflow-y: auto; /* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener */
 }
+
+tbody {
+    height: 80em;
+    overflow: scroll;
+}
