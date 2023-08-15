@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?67601781');
+  src: url('../font/fontello.eot?67601781#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?67601781') format('woff2'),
+       url('../font/fontello.woff?67601781') format('woff'),
+       url('../font/fontello.ttf?67601781') format('truetype'),
+       url('../font/fontello.svg?67601781#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?67601781#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-cog-outline:before { content: '\e800'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-help-circled:before { content: '\e801';font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-user-add-outline:before { content: '\e802'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-clipboard:before { content: '\e803'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-doc-new:before { content: '\e804'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-users:before { content: '\e805'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-down-open:before { content: '\e806'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-left-open:before { content: '\e807'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-right-open:before { content: '\e808'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-up-open:before { content: '\e809'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-megaphone:before { content: '\e80a'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-chart-bar:before { content: '\e80b'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-check:before { content: '\e80c'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-home:before { content: '\e80d'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-thumbs-up:before { content: '\e80e'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-thumbs-down:before { content: '\e80f'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-plus-outline:before { content: '\e810'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-plus:before { content: '\e811'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-list-add:before { content: '\e812'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-spin3:before { content: '\e832'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-list-numbered:before { content: '\f0cb'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-laptop:before { content: '\f109'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-user-plus:before { content: '\f234'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-user-times:before { content: '\f235'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-commenting:before { content: '\f27a'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-commenting-o:before { content: '\f27b'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-address-card:before { content: '\f2bb'; font-size: 30px; margin-bottom: 20px;} /* '' */
+.icon-address-card-o:before { content: '\f2bc'; font-size: 30px; margin-bottom: 20px;} /* '' */
