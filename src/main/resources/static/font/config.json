@@ -1,0 +1,178 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "1bafeeb1808a5fe24484c7890096901a",
+      "css": "user-plus",
+      "code": 62004,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "79d27b578931fd441a6dc885c9dd88a6",
+      "css": "address-card",
+      "code": 62139,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3a89ddb1c81111c15d6c4e26cc3c546a",
+      "css": "cog-outline",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "500fc1f109021e4b1de4deda2f7ed399",
+      "css": "laptop",
+      "code": 61705,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2105aa6ffb4434ebf82a20d97ac1ed25",
+      "css": "help-circled",
+      "code": 59393,
+      "src": "elusive"
+    },
+    {
+      "uid": "68eb56470b836f19335231578515153e",
+      "css": "address-card-o",
+      "code": 62140,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b9cd6e266f74ac97272b2fabbfbd0b85",
+      "css": "user-add-outline",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "f6766a8b042c2453a4e153af03294383",
+      "css": "list-numbered",
+      "code": 61643,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c9bef3dc67fea47e94c4a5030ea64dad",
+      "css": "clipboard",
+      "code": 59395,
+      "src": "elusive"
+    },
+    {
+      "uid": "9e0404ba55575a540164db9a5ad511df",
+      "css": "doc-new",
+      "code": 59396,
+      "src": "elusive"
+    },
+    {
+      "uid": "fb1c59faa93eb6e2248c2456625b08a2",
+      "css": "user-times",
+      "code": 62005,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "31972e4e9d080eaa796290349ae6c1fd",
+      "css": "users",
+      "code": 59397,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccddff8e8670dcd130e3cb55fdfc2fd0",
+      "css": "down-open",
+      "code": 59398,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59399,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "code": 59400,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fe6697b391355dec12f3d86d6d490397",
+      "css": "up-open",
+      "code": 59401,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3e674995cacc2b09692c096ea7eb6165",
+      "css": "megaphone",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "266d5d9adf15a61800477a5acf9a4462",
+      "css": "chart-bar",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9cc990bbcac7aa8504078b3f49df79b1",
+      "css": "commenting-o",
+      "code": 62075,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "53c28626072159c49f33b71d67138ad9",
+      "css": "commenting",
+      "code": 62074,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "14017aae737730faeda4a6fd8fb3a5f0",
+      "css": "check",
+      "code": 59404,
+      "src": "entypo"
+    },
+    {
+      "uid": "513ac180ff85bd275f2b736720cbbf5e",
+      "css": "home",
+      "code": 59405,
+      "src": "entypo"
+    },
+    {
+      "uid": "7ad4d2306ebda8452e5e3eff3cd8241c",
+      "css": "thumbs-up",
+      "code": 59406,
+      "src": "entypo"
+    },
+    {
+      "uid": "429fba993b729174468a9493613ad1ba",
+      "css": "thumbs-down",
+      "code": 59407,
+      "src": "entypo"
+    },
+    {
+      "uid": "0677f879e75956571d8cbbb478487c47",
+      "css": "plus-outline",
+      "code": 59408,
+      "src": "typicons"
+    },
+    {
+      "uid": "1gf923f9wvaezxmfon515dglxa3drf0e",
+      "css": "plus",
+      "code": 59409,
+      "src": "typicons"
+    },
+    {
+      "uid": "97bd5542ed3e143d2ee9b60e14487615",
+      "css": "list-add",
+      "code": 59410,
+      "src": "entypo"
+    },
+    {
+      "uid": "2a6740fc2f9d0edea54205963f662594",
+      "css": "spin3",
+      "code": 59442,
+      "src": "fontelico"
+    }
+  ]
+}
