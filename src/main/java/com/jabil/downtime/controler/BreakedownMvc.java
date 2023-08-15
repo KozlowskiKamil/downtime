@@ -25,4 +25,11 @@ public class BreakedownMvc {
         return "list";
     }
 
+    @GetMapping("/")
+    public String dashboard(Model model) {
+        List<BreakdownDto> all = breakdownService.findAll();
+        model.addAttribute("breakdowns" , all);
+        return "index";
+    }
+
 }
