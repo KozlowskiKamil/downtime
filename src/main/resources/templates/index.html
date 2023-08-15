@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,9 @@
     />
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/font/css/fontello.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/font/css/fontello.css}" type="text/css">
+
 </head>
 <body>
 
@@ -20,7 +23,8 @@
     <div class="row">
         <div class="col-12 menubar d-flex flex-column align-items-center">
             <br/>
-            <img src="/static/images/logo.png" class="img-fluid" style="max-width: 50px; margin-bottom: 40px">
+            <!--            <img src="/static/images/logo.png" class="img-fluid" style="max-width: 50px; margin-bottom: 40px">-->
+            <img src="/images/logo.png" class="img-fluid" style="max-width: 50px; margin-bottom: 40px">
             <div><a href="#" target="_self" class="sociallink"><i class="icon-home"></i></a></div>
             <div><a href="#" target="_self" class="sociallink"><i class="icon-laptop"></i></a></div>
             <div><a href="#" target="_self" class="sociallink"><i class="icon-list-numbered"></i></a></div>
@@ -70,5 +74,7 @@
                 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
                 crossorigin="anonymous">
         </script>
+    </div>
+</div>
 </body>
 </html>
