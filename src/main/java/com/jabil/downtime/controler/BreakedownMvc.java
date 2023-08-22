@@ -20,7 +20,7 @@ public class BreakedownMvc {
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
-        List<BreakdownDto> all = breakdownService.findAll();
+        List<BreakdownDto> all = breakdownService.findAllDescending();
         model.addAttribute("breakdowns" , all);
         return "list";
     }

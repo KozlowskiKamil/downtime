@@ -7,6 +7,7 @@ import com.jabil.downtime.model.Technician;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -41,6 +42,11 @@ public class BreakdownService {
 
     public List<BreakdownDto> findAll() {
         return breakdownRepository.findAll().stream().map(breakdownMapper::toDto).collect(Collectors.toList());
+    }
+
+    public List<BreakdownDto> findAllDescending() {
+        Sort descendingSort = Sort.by(Sort.Direction.DESC, "failureStartTime");
+        return breakdownRepository.findAll(descendingSort).stream().map(breakdownMapper::toDto).collect(Collectors.toList());
     }
 
     public BreakdownDto findById(Long id) {
