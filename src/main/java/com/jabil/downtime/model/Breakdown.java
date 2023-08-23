@@ -50,5 +50,4 @@ public class Breakdown {
     @Column(name = "failure_end", nullable = true, updatable = true)
     private LocalDateTime failureEndTime;
 
-
 }
