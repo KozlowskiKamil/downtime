@@ -28,9 +28,11 @@ public class BreakedownMvc {
     @GetMapping("/")
     public String dashboard(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
-        List<Breakdown> show = breakdownService.findAllByOngoing(true);
+        List<Breakdown> breakdownStart = breakdownService.findAllByOngoing(true);
+        List<Breakdown> breakdownEnd = breakdownService.findAllByOngoing(false);
         model.addAttribute("breakdowns" , all);
-        model.addAttribute("show" , show);
+        model.addAttribute("breakdownStart" , breakdownStart);
+        model.addAttribute("breakdownEnd" , breakdownEnd);
         return "index";
     }
 

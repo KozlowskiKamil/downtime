@@ -42,7 +42,7 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul>
-                        <li th:each="breakdown, iterStat : ${show}" th:if="${iterStat.index < 5}">
+                        <li th:each="breakdown, iterStat : ${breakdownStart}" th:if="${iterStat.index < 5}">
                             <span th:text="${breakdown.id}"></span> -
                             <span th:text="${breakdown.failureName}"></span> -
                             <span th:text="${breakdown.computerName}"></span> -
@@ -88,7 +88,7 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul>
-                        <li th:each="breakdown, iterStat : ${breakdowns}" th:if="${iterStat.index < 5}">
+                        <li th:each="breakdown, iterStat : ${breakdownEnd}" th:if="${iterStat.index < 5}">
                             <span th:text="${breakdown.id}"></span> -
                             <span th:text="${breakdown.failureName}"></span> -
                             <span th:text="${breakdown.computerName}"></span> -
