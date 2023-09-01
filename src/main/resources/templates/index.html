@@ -87,7 +87,14 @@
         <div class="row my-3">
             <div class="col-md-6 col-12">
                 <div class="tile1">
-                    Test 4
+                    <ul>
+                        <li th:each="breakdown, iterStat : ${show}" th:if="${iterStat.index < 4}">
+                            <span th:text="${breakdown.id}"></span> -
+                            <span th:text="${breakdown.failureName}"></span> -
+                            <span th:text="${breakdown.computerName}"></span> -
+                            <span th:text="${breakdown.counter}"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-6 col-12">

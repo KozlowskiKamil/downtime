@@ -89,8 +89,12 @@ public class BreakdownService {
     }
 
 
+//    public List<Breakdown> findAllByOngoing(boolean ongoing) {
+//        return breakdownRepository.findAllByOngoing(ongoing);
+//    }
+
     public List<Breakdown> findAllByOngoing(boolean ongoing) {
-        return breakdownRepository.findAllByOngoing(ongoing);
+        return breakdownRepository.findAllByOngoingOrderByFailureStartTimeDesc(ongoing);
     }
 
     public List<Breakdown> findAllByComputerNameAndFailureName(String computerName, String failureName) {
