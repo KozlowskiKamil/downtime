@@ -49,6 +49,11 @@ public class BreakdownService {
         return breakdownRepository.findAll(descendingSort).stream().map(breakdownMapper::toDto).collect(Collectors.toList());
     }
 
+    public List<BreakdownDto> findAllDescendingEnd() {
+        Sort descendingSort = Sort.by(Sort.Direction.DESC, "failureStartTime");
+        return breakdownRepository.findAllByOngoingOrderByFailureStartTimeDesc(false).stream().sorted().map(breakdownMapper::toDto).collect(Collectors.toList());
+    }
+
     public BreakdownDto findById(Long id) {
         Breakdown breakdownById = breakdownRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Brak awarii o takim id"));
         return breakdownMapper.toDto(breakdownById);

@@ -27,7 +27,7 @@ public class BreakedownMvc {
 
     @GetMapping("/")
     public String dashboard(Model model) {
-        List<BreakdownDto> all = breakdownService.findAll();
+        List<BreakdownDto> all = breakdownService.findAllDescending();
         List<Breakdown> show = breakdownService.findAllByOngoing(true);
         model.addAttribute("breakdowns" , all);
         model.addAttribute("show" , show);
