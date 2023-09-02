@@ -79,7 +79,12 @@
             </div>
             <div class="col-md-3 col-12">
                 <div class="tile1">
-                    Test 3
+                    <ul>
+                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}" th:if="${iterStat.index < 5}">
+                            <span th:text="${computerNameWithCount[0]}"></span> -
+                            <span th:text="${computerNameWithCount[1]}"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -99,7 +104,13 @@
             </div>
             <div class="col-md-6 col-12">
                 <div class="tile1">
-                    Test 5
+                    <ul>
+                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"
+                            th:if="${iterStat.index < 2}">
+                            <span th:text="${computerNameWithCount[0]}"></span> -
+                            <span th:text="${computerNameWithCount[1]}"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
