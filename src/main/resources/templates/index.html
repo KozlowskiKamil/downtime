@@ -74,15 +74,20 @@
             </div>
             <div class="col-md-3 col-12">
                 <div class="tile1">
-                    Test 2
+                    <ul>
+                        <li th:each="findFailureNameWithCounts, iterStat : ${findFailureNameWithCounts}" th:if="${iterStat.index < 5}">
+                            <span th:text="${findFailureNameWithCounts[1]}"></span> -
+                            <span th:text="${findFailureNameWithCounts[0]}"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="tile1">
                     <ul>
                         <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}" th:if="${iterStat.index < 5}">
-                            <span th:text="${computerNameWithCount[0]}"></span> -
-                            <span th:text="${computerNameWithCount[1]}"></span>
+                            <span th:text="${computerNameWithCount[1]}"></span> -
+                            <span th:text="${computerNameWithCount[0]}"></span>
                         </li>
                     </ul>
                 </div>

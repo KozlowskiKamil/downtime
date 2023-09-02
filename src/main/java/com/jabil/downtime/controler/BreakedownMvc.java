@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,7 +22,7 @@ public class BreakedownMvc {
     @GetMapping("/list")
     public String breakedownList(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
-        model.addAttribute("breakdowns" , all);
+        model.addAttribute("breakdowns", all);
         return "list";
     }
 
@@ -34,10 +32,12 @@ public class BreakedownMvc {
         List<Breakdown> breakdownStart = breakdownService.findAllByOngoing(true);
         List<Breakdown> breakdownEnd = breakdownService.findAllByOngoing(false);
         List<Object[]> countComputerName = breakdownRepository.findComputerNamesWithCounts();
-        model.addAttribute("breakdowns" , all);
-        model.addAttribute("breakdownStart" , breakdownStart);
-        model.addAttribute("breakdownEnd" , breakdownEnd);
+        List<Object[]> findFailureNameWithCounts = breakdownRepository.findFailureNameWithCounts();
+        model.addAttribute("breakdowns", all);
+        model.addAttribute("breakdownStart", breakdownStart);
+        model.addAttribute("breakdownEnd", breakdownEnd);
         model.addAttribute("computerNamesWithCounts", countComputerName);
+        model.addAttribute("findFailureNameWithCounts", findFailureNameWithCounts);
 
         return "index";
     }

@@ -23,4 +23,7 @@ public interface BreakdownRepository extends JpaRepository<Breakdown, Long> {
 
         @Query("SELECT b.computerName, COUNT(b.computerName) AS computerCount FROM Breakdown b GROUP BY b.computerName ORDER BY computerCount DESC")
         List<Object[]> findComputerNamesWithCounts();
+
+        @Query("SELECT b.failureName, COUNT(b.failureName) AS failureCount FROM Breakdown b GROUP BY b.failureName ORDER BY failureCount DESC")
+        List<Object[]> findFailureNameWithCounts();
 }
