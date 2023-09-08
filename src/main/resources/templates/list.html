@@ -35,41 +35,42 @@
         </div>
     </div>
 
-    <div class="container p-5">
+    <div class="container">
         <div class="row my-3">
             <div class="col-12">
+                <div class="scrollable-table" style="max-height: 85vh; width: 107%; overflow-y: auto; overflow-x: hidden;">
+                    <table class="table table-striped table-hover table1">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Failure</th>
+                            <th scope="col">Computer</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">In progres</th>
+                            <th scope="col">Downtime</th>
+                            <th scope="col">Waiting Time</th>
+                            <th scope="col">Failure Start</th>
+                            <th scope="col">Failure End</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="breakdown : ${breakdowns}">
+                            <td th:text="${breakdown.id}"></td>
+                            <td th:text="${breakdown.failureName}"></td>
+                            <td th:text="${breakdown.computerName}"></td>
+                            <td th:text="${breakdown.description}"></td>
+                            <td th:text="${breakdown.ongoing}"></td>
+                            <td th:text="${breakdown.counter}"></td>
+                            <td th:text="${breakdown.waitingTime}"></td>
+                            <td th:text="${breakdown.failureStartTime}"></td>
+                            <td th:text="${breakdown.failureEndTime}"></td>
+                            <!--                        <td th:text="${#dates.format(breakdown.failureStartTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+                            <!--                        <td th:text="${#dates.format(breakdown.failureEndTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
 
-                <table class="table table-striped table-hover table1">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Failure</th>
-                        <th scope="col">Computer</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">In progres</th>
-                        <th scope="col">Downtime</th>
-                        <th scope="col">Waiting Time</th>
-                        <th scope="col">Failure Start</th>
-                        <th scope="col">Failure End</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="breakdown : ${breakdowns}">
-                        <td th:text="${breakdown.id}"></td>
-                        <td th:text="${breakdown.failureName}"></td>
-                        <td th:text="${breakdown.computerName}"></td>
-                        <td th:text="${breakdown.description}"></td>
-                        <td th:text="${breakdown.ongoing}"></td>
-                        <td th:text="${breakdown.counter}"></td>
-                        <td th:text="${breakdown.waitingTime}"></td>
-                        <td th:text="${breakdown.failureStartTime}"></td>
-                        <td th:text="${breakdown.failureEndTime}"></td>
-<!--                        <td th:text="${#dates.format(breakdown.failureStartTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-<!--                        <td th:text="${#dates.format(breakdown.failureEndTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-
-                    </tr>
-                    </tbody>
-                </table>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -62,3 +62,11 @@ tbody {
     border-radius: 10px;
     margin-bottom: 10px;
 }
+.col-12.menubar {
+    margin: 0;
+    padding: 0;
+}
+.container.p-5 {
+    margin: 0;
+    padding: 0;
+}
