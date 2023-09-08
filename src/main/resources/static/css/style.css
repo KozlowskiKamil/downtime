@@ -50,6 +50,8 @@ a.sociallink:hover {
 .scrollable-table {
     max-height: 400px; /* Ustaw maksymalną wysokość listy */
     overflow-y: auto; /* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener */
+    width: 107%;
+    overflow-x: hidden;
 }
 
 tbody {
@@ -62,11 +64,4 @@ tbody {
     border-radius: 10px;
     margin-bottom: 10px;
 }
-.col-12.menubar {
-    margin: 0;
-    padding: 0;
-}
-.container.p-5 {
-    margin: 0;
-    padding: 0;
-}
+

@@ -38,13 +38,13 @@
     <div class="container">
         <div class="row my-3">
             <div class="col-12">
-                <div class="scrollable-table" style="max-height: 85vh; width: 107%; overflow-y: auto; overflow-x: hidden;">
+                <div class="scrollable-table" style="max-height: 89vh; width: 107%; overflow-y: auto; overflow-x: hidden;">
                     <table class="table table-striped table-hover table1">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Failure</th>
+<!--                            <th scope="col">#</th>-->
                             <th scope="col">Computer</th>
+                            <th scope="col">Failure</th>
                             <th scope="col">Description</th>
                             <th scope="col">In progres</th>
                             <th scope="col">Downtime</th>
@@ -55,9 +55,9 @@
                         </thead>
                         <tbody>
                         <tr th:each="breakdown : ${breakdowns}">
-                            <td th:text="${breakdown.id}"></td>
-                            <td th:text="${breakdown.failureName}"></td>
+<!--                            <td th:text="${breakdown.id}"></td>-->
                             <td th:text="${breakdown.computerName}"></td>
+                            <td th:text="${breakdown.failureName}"></td>
                             <td th:text="${breakdown.description}"></td>
                             <td th:text="${breakdown.ongoing}"></td>
                             <td th:text="${breakdown.counter}"></td>
