@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -36,6 +38,12 @@ public class BreakedownMvc {
         List<TechnicianDto> all = technicianService.findAllTechnican();
         model.addAttribute("technicians", all);
         return "technician";
+    }
+
+    @PostMapping("/add")
+    public String addTechnician(@ModelAttribute TechnicianDto technicianDto) {
+        technicianService.registerTechnician(technicianDto);
+        return "redirect:/technician";
     }
 
     @GetMapping("/")
