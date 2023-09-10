@@ -26,6 +26,19 @@ public class TechnicianService {
                 .collect(Collectors.toList());
     }
 
+    public TechnicianDto registerTechnician(TechnicianDto technicianDto) {
+        if (!technicianExist(technicianDto)) {
+            saveTechnician(technicianDto);
+            return technicianDto;
+        }
+        throw new IllegalArgumentException("BT istnieje");
+    }
+
+    public boolean technicianExist(TechnicianDto technicianDto) {
+        boolean technicianExist = findAllTechnican().stream().anyMatch(technicianDto1 -> technicianDto1.equals(technicianDto.getBadgeNumber()));
+        return technicianExist;
+    }
+
     public TechnicianDto saveTechnician(TechnicianDto technicianDto) {
         Technician saveTechnician = technicianRepository.save(technicianMapper.fromDto(technicianDto));
         return technicianMapper.toDto(saveTechnician);

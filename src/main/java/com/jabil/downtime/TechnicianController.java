@@ -25,7 +25,7 @@ public class TechnicianController {
     @PostMapping("/addtechnician")
     public ResponseEntity<TechnicianDto> addTechnican(@RequestBody TechnicianDto technicianRequest) {
         TechnicianDto technicianDto = new TechnicianDto(technicianRequest.getId(), technicianRequest.getName(), technicianRequest.getBadgeNumber());
-        TechnicianDto saveTechnican = technicianService.saveTechnician(technicianDto);
+        TechnicianDto saveTechnican = technicianService.registerTechnician(technicianDto);
         logger.info("Dodano nowego technika: " + saveTechnican);
         return new ResponseEntity<>(saveTechnican, HttpStatus.CREATED);
     }
