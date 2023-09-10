@@ -28,7 +28,7 @@ public class TechnicianController {
         TechnicianDto saveTechnican = technicianService.registerTechnician(technicianDto);
         logger.info("Dodano nowego technika: " + saveTechnican);
         return new ResponseEntity<>(saveTechnican, HttpStatus.CREATED);
-    }
+    }   // TODO: 10.09.2023 obsługa wyjątku jeśli technik już istnieje
 
     @GetMapping("/technican")
     public List<Technician> findAllTechnican() {

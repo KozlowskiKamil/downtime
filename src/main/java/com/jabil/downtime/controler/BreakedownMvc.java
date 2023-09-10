@@ -2,7 +2,10 @@ package com.jabil.downtime.controler;
 
 import com.jabil.downtime.BreakdownRepository;
 import com.jabil.downtime.BreakdownService;
+import com.jabil.downtime.TechnicianRepository;
+import com.jabil.downtime.TechnicianService;
 import com.jabil.downtime.dto.BreakdownDto;
+import com.jabil.downtime.dto.TechnicianDto;
 import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,12 +21,21 @@ public class BreakedownMvc {
 
     private final BreakdownService breakdownService;
     private final BreakdownRepository breakdownRepository;
+    private final TechnicianRepository technicianRepository;
+    private final TechnicianService technicianService;
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
         model.addAttribute("breakdowns", all);
         return "list";
+    }
+
+    @GetMapping("/technician")
+    public String technician(Model model) {
+        List<TechnicianDto> all = technicianService.findAllTechnican();
+        model.addAttribute("technicians", all);
+        return "technician";
     }
 
     @GetMapping("/")

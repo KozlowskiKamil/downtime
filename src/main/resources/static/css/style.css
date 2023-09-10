@@ -21,12 +21,34 @@ ul {
     color: #4e4e4e;
 }
 
+.tile2 {
+    height: 700px;
+    background-color: #fdfdfe;
+    box-shadow: 1px 2px 1px rgba(107, 102, 102, 0.25);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    color: #4e4e4e;
+}
+
 .tile1:hover {
     background-color: #fdfdfe;
     cursor: pointer;
 }
 
 .tile1:active {
+    background-color: #fdfdfe;
+    cursor: pointer;
+}
+
+.tile2:hover {
+    background-color: #fdfdfe;
+    cursor: pointer;
+}
+
+.tile2:active {
     background-color: #fdfdfe;
     cursor: pointer;
 }
