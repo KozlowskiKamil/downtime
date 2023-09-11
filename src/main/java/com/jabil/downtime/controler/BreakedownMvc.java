@@ -10,6 +10,7 @@ import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,12 @@ public class BreakedownMvc {
     private final TechnicianRepository technicianRepository;
     private final TechnicianService technicianService;
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String handleIllegalArgumentException(IllegalArgumentException ex, Model model) {
+        model.addAttribute("error", ex.getMessage());
+        return "errorPage";
+    }
+
     @GetMapping("/list")
     public String breakedownList(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
@@ -41,8 +48,9 @@ public class BreakedownMvc {
     }
 
     @PostMapping("/add")
-    public String addTechnician(@ModelAttribute TechnicianDto technicianDto) {
-        technicianService.registerTechnician(technicianDto);
+    public String addTechnician(@ModelAttribute TechnicianDto technicianDto, Model model) {
+        technicianService.registerUserId(technicianDto);
+        model.addAttribute("mesage", "Dodano");
         return "redirect:/technician";
     }
 

@@ -25,10 +25,10 @@ public class TechnicianController {
     @PostMapping("/addtechnician")
     public ResponseEntity<TechnicianDto> addTechnican(@RequestBody TechnicianDto technicianRequest) {
         TechnicianDto technicianDto = new TechnicianDto(technicianRequest.getId(), technicianRequest.getName(), technicianRequest.getBadgeNumber());
-        TechnicianDto saveTechnican = technicianService.registerTechnician(technicianDto);
+        TechnicianDto saveTechnican = technicianService.saveTechnician(technicianDto);
         logger.info("Dodano nowego technika: " + saveTechnican);
         return new ResponseEntity<>(saveTechnican, HttpStatus.CREATED);
-    }   // TODO: 10.09.2023 obsługa wyjątku jeśli technik już istnieje
+    }
 
     @GetMapping("/technican")
     public List<Technician> findAllTechnican() {

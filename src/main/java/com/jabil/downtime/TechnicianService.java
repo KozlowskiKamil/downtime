@@ -34,9 +34,26 @@ public class TechnicianService {
         throw new IllegalArgumentException("BT istnieje");
     }
 
+
+    public String registerUserId(TechnicianDto technicianDto) {
+        boolean userExist = technicianExist(technicianDto);
+        if (userExist) {
+            return "Login jest już zajęty, wybierz inny login";
+        }
+
+        TechnicianDto savedUser = registerTechnician(technicianDto);
+        if (savedUser != null) {
+            return "Dodano użytkownika: ";
+        } else {
+            return "Wystąpił problem podczas rejestracji użytkownika";
+        }
+    }
+
+
     public boolean technicianExist(TechnicianDto technicianDto) {
-        boolean technicianExist = findAllTechnican().stream().anyMatch(technicianDto1 -> technicianDto1.equals(technicianDto.getBadgeNumber()));
-        return technicianExist;
+        int badgeNumberToCheck = technicianDto.getBadgeNumber();
+        return findAllTechnican().stream()
+                .anyMatch(technicianDto1 -> technicianDto1.getBadgeNumber() == badgeNumberToCheck);
     }
 
     public TechnicianDto saveTechnician(TechnicianDto technicianDto) {
@@ -70,6 +87,4 @@ public class TechnicianService {
     public void deleteById(Long id) {
         technicianRepository.deleteById(id);
     }
-
-
 }
