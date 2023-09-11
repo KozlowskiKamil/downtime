@@ -10,7 +10,6 @@ import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +31,13 @@ public class BreakedownMvc {
         List<BreakdownDto> all = breakdownService.findAllDescending();
         model.addAttribute("breakdowns", all);
         return "list";
+    }
+
+    @GetMapping("/addbreakdown")
+    public String breakdown(Model model) {
+        List<BreakdownDto> all = breakdownService.findAllDescending();
+        model.addAttribute("breakdowns", all);
+        return "addbreakdown";
     }
 
     @GetMapping("/technician")
