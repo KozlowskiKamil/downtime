@@ -40,46 +40,59 @@
             <img src="/images/jabil-logo-vector.svg" class="img-fluid" style="max-width: 300px; margin: 0; padding: 0">
         </div>
         <div class="row my-3">
-            <div class="col-md-6 col-12">
+            <div class="col-md-3 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Otwarte awarie</li>
+                        <li class="list-group-item active" aria-current="true">Top 5 dziś</li>
                     </ul>
                     <ul>
-                        <li th:each="breakdown, iterStat : ${breakdownStart}" th:if="${iterStat.index < 5}">
-                            <span th:text="${breakdown.id}"></span> -
-                            <span th:text="${breakdown.failureName}"></span> -
-                            <span th:text="${breakdown.computerName}"></span> -
-                            <span th:text="${breakdown.counter}"></span>
-                        </li>
+<!--                        <li th:each="findFailureNameWithCounts, iterStat : ${findFailureNameWithCounts}"-->
+<!--                            th:if="${iterStat.index < 5}">-->
+<!--                            <span th:text="${findFailureNameWithCounts[1]}"></span> - -->
+<!--                            <span th:text="${findFailureNameWithCounts[0]}"></span>-->
+<!--                        </li>-->
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Częste błędy</li>
+                        <li class="list-group-item active" aria-current="true">Top 5 tydzień</li>
                     </ul>
                     <ul>
-                        <li th:each="findFailureNameWithCounts, iterStat : ${findFailureNameWithCounts}"
-                            th:if="${iterStat.index < 5}">
-                            <span th:text="${findFailureNameWithCounts[1]}"></span> -
-                            <span th:text="${findFailureNameWithCounts[0]}"></span>
-                        </li>
+<!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
+<!--                            th:if="${iterStat.index < 5}">-->
+<!--                            <span th:text="${computerNameWithCount[1]}"></span> - -->
+<!--                            <span th:text="${computerNameWithCount[0]}"></span>-->
+<!--                        </li>-->
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Awaryjne PC</li>
+                        <li class="list-group-item active" aria-current="true">Top 5 NCR</li>
                     </ul>
                     <ul>
-                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"
-                            th:if="${iterStat.index < 5}">
-                            <span th:text="${computerNameWithCount[1]}"></span> -
-                            <span th:text="${computerNameWithCount[0]}"></span>
-                        </li>
+<!--                        <li th:each="findFailureNameWithCounts, iterStat : ${findFailureNameWithCounts}"-->
+<!--                            th:if="${iterStat.index < 5}">-->
+<!--                            <span th:text="${findFailureNameWithCounts[1]}"></span> - -->
+<!--                            <span th:text="${findFailureNameWithCounts[0]}"></span>-->
+<!--                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="tile1">
+                    <ul class="list-group">
+                        <li class="list-group-item active" aria-current="true">Top 5 Downtime</li>
+                    </ul>
+                    <ul>
+<!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
+<!--                            th:if="${iterStat.index < 5}">-->
+<!--                            <span th:text="${computerNameWithCount[1]}"></span> - -->
+<!--                            <span th:text="${computerNameWithCount[0]}"></span>-->
+<!--                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -89,29 +102,29 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Zamknięte awarie</li>
+                        <li class="list-group-item active" aria-current="true">Ważne do zrobienia</li>
                     </ul>
                     <ul>
-                        <li th:each="breakdown, iterStat : ${breakdownEnd}" th:if="${iterStat.index < 5}">
-                            <span th:text="${breakdown.id}"></span> -
-                            <span th:text="${breakdown.failureName}"></span> -
-                            <span th:text="${breakdown.computerName}"></span> -
-                            <span th:text="${breakdown.counter}"></span>
-                        </li>
+<!--                        <li th:each="breakdown, iterStat : ${breakdownEnd}" th:if="${iterStat.index < 5}">-->
+<!--                            <span th:text="${breakdown.id}"></span> - -->
+<!--                            <span th:text="${breakdown.failureName}"></span> - -->
+<!--                            <span th:text="${breakdown.computerName}"></span> - -->
+<!--                            <span th:text="${breakdown.counter}"></span>-->
+<!--                        </li>-->
                     </ul>
                 </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Zadania do wykonania</li>
+                        <li class="list-group-item active" aria-current="true">Pozostałe</li>
                     </ul>
                     <ul>
-                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"
-                            th:if="${iterStat.index < 2}">
-                            <span th:text="${computerNameWithCount[0]}"></span> -
-                            <span th:text="${computerNameWithCount[1]}"></span>
-                        </li>
+<!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
+<!--                            th:if="${iterStat.index < 2}">-->
+<!--                            <span th:text="${computerNameWithCount[0]}"></span> - -->
+<!--                            <span th:text="${computerNameWithCount[1]}"></span>-->
+<!--                        </li>-->
                     </ul>
                 </div>
             </div>

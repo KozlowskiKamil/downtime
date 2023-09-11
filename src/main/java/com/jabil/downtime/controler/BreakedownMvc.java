@@ -27,12 +27,6 @@ public class BreakedownMvc {
     private final TechnicianRepository technicianRepository;
     private final TechnicianService technicianService;
 
-//    @ExceptionHandler(IllegalArgumentException.class)
-//    public String handleIllegalArgumentException(IllegalArgumentException ex, Model model) {
-//        model.addAttribute("error", ex.getMessage());
-//        return "errorPage";
-//    }
-
     @GetMapping("/list")
     public String breakedownList(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
@@ -45,6 +39,20 @@ public class BreakedownMvc {
         List<TechnicianDto> all = technicianService.findAllTechnican();
         model.addAttribute("technicians", all);
         return "technician";
+    }
+
+    @GetMapping("/todo")
+    public String todo(Model model) {
+        List<TechnicianDto> all = technicianService.findAllTechnican();
+        model.addAttribute("technicians", all);
+        return "todo";
+    }
+
+    @GetMapping("/stats")
+    public String stats(Model model) {
+        List<TechnicianDto> all = technicianService.findAllTechnican();
+        model.addAttribute("technicians", all);
+        return "stats";
     }
 
     @PostMapping("/add")

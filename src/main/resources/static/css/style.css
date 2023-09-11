@@ -69,22 +69,6 @@ a.navigation:hover {
     color: #54c0e8ff;
 }
 
-/*.scrollable-table {*/
-/*    max-height: 400px; !* Ustaw maksymalną wysokość listy *!*/
-/*    overflow-y: auto; !* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener *!*/
-/*    width: 107%;*/
-/*    overflow-x: hidden;*/
-/*}*/
-
-/*tbody {*/
-/*    height: 80em;*/
-/*    overflow: scroll;*/
-/*}*/
-
-/*table.table tbody tr {*/
-/*    height: 15px;*/
-/*}*/
-
 .table1 {
     box-shadow: 1px 2px 1px rgba(107, 102, 102, 0.25);
     border-radius: 10px;
@@ -104,3 +88,21 @@ ul.list-group li.active {
 .btn-primary:hover {
     background-color: #42b4d6ff;
 }
+
+
+
+/*.scrollable-table {*/
+/*    max-height: 400px; !* Ustaw maksymalną wysokość listy *!*/
+/*    overflow-y: auto; !* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener *!*/
+/*    width: 107%;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*tbody {*/
+/*    height: 80em;*/
+/*    overflow: scroll;*/
+/*}*/
+
+/*table.table tbody tr {*/
+/*    height: 15px;*/
+/*}*/
