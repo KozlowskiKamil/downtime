@@ -38,12 +38,12 @@ public class TechnicianService {
     public String registerUserId(TechnicianDto technicianDto) {
         boolean userExist = technicianExist(technicianDto);
         if (userExist) {
-            return "Login jest już zajęty, wybierz inny login";
+            return "Technik o BT: " + technicianDto.getBadgeNumber() + " już istnieje";
         }
 
         TechnicianDto savedUser = registerTechnician(technicianDto);
         if (savedUser != null) {
-            return "Dodano użytkownika: ";
+            return "Dodano: " + technicianDto.getName();
         } else {
             return "Wystąpił problem podczas rejestracji użytkownika";
         }

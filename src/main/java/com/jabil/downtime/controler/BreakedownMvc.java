@@ -27,11 +27,11 @@ public class BreakedownMvc {
     private final TechnicianRepository technicianRepository;
     private final TechnicianService technicianService;
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public String handleIllegalArgumentException(IllegalArgumentException ex, Model model) {
-        model.addAttribute("error", ex.getMessage());
-        return "errorPage";
-    }
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public String handleIllegalArgumentException(IllegalArgumentException ex, Model model) {
+//        model.addAttribute("error", ex.getMessage());
+//        return "errorPage";
+//    }
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
@@ -49,9 +49,11 @@ public class BreakedownMvc {
 
     @PostMapping("/add")
     public String addTechnician(@ModelAttribute TechnicianDto technicianDto, Model model) {
-        technicianService.registerUserId(technicianDto);
-        model.addAttribute("mesage", "Dodano");
-        return "redirect:/technician";
+        String s = technicianService.registerUserId(technicianDto);
+        List<TechnicianDto> all = technicianService.findAllTechnican();
+        model.addAttribute("technicians", all);
+        model.addAttribute("message", s);
+        return "technician";
     }
 
     @GetMapping("/")
