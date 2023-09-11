@@ -25,13 +25,13 @@
             <br/>
             <!--            <img src="/static/images/logo.png" class="img-fluid" style="max-width: 50px; margin-bottom: 40px">-->
             <img src="/images/logo.png" class="img-fluid" style="max-width: 50px; margin-bottom: 40px">
-            <div><a th:href="@{/}" target="_self" class="sociallink"><i class="icon-home"></i></a></div>
-            <div><a href="#" target="_self" class="sociallink"><i class="icon-laptop"></i></a></div>
-            <div><a th:href="@{list}" target="_self" class="sociallink"><i class="icon-list-numbered"></i></a></div>
-            <div><a href="#" target="_self" class="sociallink"><i class="icon-clipboard"></i></a></div>
-            <div><a th:href="@{technician}" target="_self" class="sociallink"><i class="icon-address-card-o"></i></a>
+            <div><a th:href="@{/}" target="_self" class="navigation"><i class="icon-home"></i></a></div>
+            <div><a href="#" target="_self" class="navigation"><i class="icon-laptop"></i></a></div>
+            <div><a th:href="@{list}" target="_self" class="navigation"><i class="icon-list-numbered"></i></a></div>
+            <div><a href="#" target="_self" class="navigation"><i class="icon-clipboard"></i></a></div>
+            <div><a th:href="@{technician}" target="_self" class="navigation"><i class="icon-address-card-o"></i></a>
             </div>
-            <div><a href="#" target="_self" class="sociallink"><i class="icon-chart-bar"></i></a></div>
+            <div><a href="#" target="_self" class="navigation"><i class="icon-chart-bar"></i></a></div>
 
         </div>
     </div>
@@ -50,16 +50,20 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Imię Nazwisko</label>
-                            <input type="text" class="form-control" id="name" placeholder="">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="">
                         </div>
                         <div class=mb-3>
                             <label for="badgeNumber" class="form-label">Numer BT</label>
-                            <input type="number" class="form-control" id="badgeNumber" placeholder="">
+                            <input type="number" class="form-control" id="badgeNumber" name="badgeNumber"
+                                   placeholder="">
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+                            <button type="submit" class="btn btn-primary mb-3">Dodaj technika</button>
                         </div>
                     </form>
+                    <div th:if="${mesage}" class="alert alert-secondary" role="alert">
+                        <span th:text="${mesage}"></span>
+                    </div>
 
                 </div>
             </div>

@@ -1,6 +1,6 @@
 body {
     background-color: #f6f8fb;
-    color: #000000;
+    color: #003d6bff;
     font-family: 'Lato', sans-serif;
     font-size: large;
 }
@@ -18,11 +18,11 @@ ul {
     font-family: Helvetica, Arial, sans-serif;
     font-size: large;
     font-weight: bold;
-    color: #4e4e4e;
+    color: #003d6bff;
 }
 
 .tile2 {
-    height: 700px;
+    height: 626px;
     background-color: #fdfdfe;
     box-shadow: 1px 1px 4px 0px rgba(66, 68, 90, 1);
     border-radius: 10px;
@@ -30,7 +30,7 @@ ul {
     font-family: Helvetica, Arial, sans-serif;
     font-size: large;
     font-weight: bold;
-    color: #4e4e4e;
+    color: #003d6bff;
 }
 
 .tile1:hover {
@@ -59,22 +59,22 @@ ul {
 
 }
 
-a.sociallink {
+a.navigation {
     color: rgb(0, 0, 0);
     text-decoration: none;
     display: block;
 }
 
-a.sociallink:hover {
-    color: rgb(1, 187, 213);
+a.navigation:hover {
+    color: #54c0e8ff;
 }
 
-.scrollable-table {
-    max-height: 400px; /* Ustaw maksymalną wysokość listy */
-    overflow-y: auto; /* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener */
-    width: 107%;
-    overflow-x: hidden;
-}
+/*.scrollable-table {*/
+/*    max-height: 400px; !* Ustaw maksymalną wysokość listy *!*/
+/*    overflow-y: auto; !* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener *!*/
+/*    width: 107%;*/
+/*    overflow-x: hidden;*/
+/*}*/
 
 tbody {
     height: 80em;
@@ -85,5 +85,18 @@ tbody {
     box-shadow: 1px 2px 1px rgba(107, 102, 102, 0.25);
     border-radius: 10px;
     margin-bottom: 10px;
+    color: #003d6bff;
 }
 
+ul.list-group li.active {
+    background-color: #54c0e8ff;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #54c0e8ff;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #42b4d6ff;
+}
