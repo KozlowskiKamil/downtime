@@ -34,23 +34,25 @@ ul {
 }
 
 .tile1:hover {
-    background-color: #fdfdfe;
-    cursor: pointer;
+    box-shadow: 1px 1px 4px 1px rgba(66, 68, 90, 1);
+    /*background-color: #fdfdfe;*/
+    /*cursor: pointer;*/
 }
 
 .tile1:active {
-    background-color: #fdfdfe;
-    cursor: pointer;
+    /*background-color: #fdfdfe;*/
+    /*cursor: pointer;*/
 }
 
 .tile2:hover {
-    background-color: #fdfdfe;
-    cursor: pointer;
+    box-shadow: 1px 1px 4px 1px rgba(66, 68, 90, 1);
+    /*background-color: #fdfdfe;*/
+    /*cursor: pointer;*/
 }
 
 .tile2:active {
-    background-color: #fdfdfe;
-    cursor: pointer;
+    /*background-color: #fdfdfe;*/
+    /*cursor: pointer;*/
 }
 
 .menubar {

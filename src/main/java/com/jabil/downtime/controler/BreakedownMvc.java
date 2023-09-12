@@ -42,6 +42,16 @@ public class BreakedownMvc {
         return "addbreakdown";
     }
 
+    @PostMapping("/addbreakdown")
+    public String addbreakdown(@ModelAttribute BreakdownDto breakdownDto, Model model) {
+        breakdownService.saveBreakdown(breakdownDto);
+//        List<BreakdownDto> all = breakdownService.findAllDistinct();
+//        model.addAttribute("breakdowns", all);
+//        List<TechnicianDto> allTechnican = technicianService.findAllTechnican();
+//        model.addAttribute("technicians", allTechnican);
+        return "addbreakdown";
+    }
+
     @GetMapping("/technician")
     public String technician(Model model) {
         List<TechnicianDto> all = technicianService.findAllTechnican();
@@ -63,7 +73,7 @@ public class BreakedownMvc {
         return "stats";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/technician")
     public String addTechnician(@ModelAttribute TechnicianDto technicianDto, Model model) {
         String s = technicianService.registerUserId(technicianDto);
         List<TechnicianDto> all = technicianService.findAllTechnican();
