@@ -45,32 +45,32 @@
                             <div class="col-md-6 col-12">
                                 <br>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="breakdown" class="form-label">Nazwa testera</label>
-                                    <select class="form-select" id="breakdown" name="breakdown" required>
+                                    <label for="computerName" class="form-label">Nazwa testera</label>
+                                    <select class="form-select" id="computerName" name="computerName" required>
                                         <option th:each="breakdown : ${breakdowns}" th:value="${breakdown.id}"
                                                 th:text="${breakdown.computerName}"></option>
                                     </select>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="technician" class="form-label">Wybierz technika</label>
-                                    <select class="form-select" id="technician" name="technician" required>
+                                    <label for="name" class="form-label">Wybierz technika</label>
+                                    <select class="form-select" id="name" name="name" required>
                                         <option th:each="technician : ${technicians}" th:value="${technician.id}"
                                                 th:text="${technician.name}"></option>
                                     </select>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="name" class="form-label">Data i godzina awarii</label>
-                                    <input type="datetime-local" class="form-control" id="name" name="name"
+                                    <label for="failureStartTime" class="form-label">Data i godzina awarii</label>
+                                    <input type="datetime-local" class="form-control" id="failureStartTime" name="failureStartTime"
                                            placeholder="" required>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="wait" class="form-label">Czas oczekiwania</label>
-                                    <input type="number" class="form-control" id="wait" name="wait"
+                                    <label for="waitingTime" class="form-label">Czas oczekiwania</label>
+                                    <input type="number" class="form-control" id="waitingTime" name="waitingTime"
                                            placeholder="" required>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="dt" class="form-label">Czas awarii</label>
-                                    <input type="number" class="form-control" id="dt" name="dt"
+                                    <label for="counter" class="form-label">Czas awarii</label>
+                                    <input type="number" class="form-control" id="counter" name="counter"
                                            placeholder="" required>
                                 </div>
                             </div>
