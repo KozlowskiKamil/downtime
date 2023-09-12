@@ -44,6 +44,21 @@ public class BreakdownService {
         return breakdownRepository.findAll().stream().map(breakdownMapper::toDto).collect(Collectors.toList());
     }
 
+    public List<BreakdownDto> findAllDistinct() {
+        List<BreakdownDto> result = breakdownRepository.findAll()
+                .stream()
+                .collect(Collectors.toMap(
+                        Breakdown::getComputerName,
+                        breakdownMapper::toDto,
+                        (existing, replacement) -> existing
+                ))
+                .values()
+                .stream()
+                .collect(Collectors.toList());
+        return result;
+    }
+
+
     public List<BreakdownDto> findAllDescending() {
         Sort descendingSort = Sort.by(Sort.Direction.DESC, "failureStartTime");
         return breakdownRepository.findAll(descendingSort).stream().map(breakdownMapper::toDto).collect(Collectors.toList());

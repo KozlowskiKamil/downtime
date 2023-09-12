@@ -35,8 +35,10 @@ public class BreakedownMvc {
 
     @GetMapping("/addbreakdown")
     public String breakdown(Model model) {
-        List<BreakdownDto> all = breakdownService.findAllDescending();
+        List<BreakdownDto> all = breakdownService.findAllDistinct();
         model.addAttribute("breakdowns", all);
+        List<TechnicianDto> allTechnican = technicianService.findAllTechnican();
+        model.addAttribute("technicians", allTechnican);
         return "addbreakdown";
     }
 

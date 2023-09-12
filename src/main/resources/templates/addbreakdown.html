@@ -44,48 +44,55 @@
                     <ul class="list-group">
                         <li class="list-group-item active" aria-current="true">Dodaj awarie</li>
                     </ul>
-                    <div class="row my-3">
-                        <div class="col-md-6 col-12">
-                            <form action="/add" method="post">
+                    <form action="/add" method="post">
+                        <div class="row my-3">
+                            <div class="col-md-6 col-12">
                                 <br>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="name" class="form-label">Nazwa testera</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder=""
-                                           required>
+                                    <label for="breakdown" class="form-label">Nazwa testera</label>
+                                    <select class="form-select" id="breakdown" name="breakdown" required>
+                                        <option th:each="breakdown : ${breakdowns}" th:value="${breakdown.id}"
+                                                th:text="${breakdown.computerName}"></option>
+                                    </select>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
-                                    <label for="badgeNumber" class="form-label">Opis zadania</label>
-                                    <input type="number" class="form-control" id="badgeNumber" name="badgeNumber"
-                                           placeholder="" required>
+                                    <label for="technician" class="form-label">Wybierz technika</label>
+                                    <select class="form-select" id="technician" name="technician" required>
+                                        <option th:each="technician : ${technicians}" th:value="${technician.id}"
+                                                th:text="${technician.name}"></option>
+                                    </select>
                                 </div>
-
-                                <div th:if="${message}" class="alert alert-secondary" role="alert">
-                                    <span th:text="${message}"></span>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <form action="/add" method="post">
-                                <br>
-                                <div class="col-auto me-5 mb-3">
+                                <div class="col-auto ms-5 mb-3">
                                     <label for="name" class="form-label">Data i godzina awarii</label>
                                     <input type="datetime-local" class="form-control" id="name" name="name"
                                            placeholder="" required>
                                 </div>
+                                <div class="col-auto ms-5 mb-3">
+                                    <label for="wait" class="form-label">Czas oczekiwania</label>
+                                    <input type="number" class="form-control" id="wait" name="wait"
+                                           placeholder="" required>
+                                </div>
+                                <div class="col-auto ms-5 mb-3">
+                                    <label for="dt" class="form-label">Czas awarii</label>
+                                    <input type="number" class="form-control" id="dt" name="dt"
+                                           placeholder="" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <br>
                                 <div class="col-auto me-5 mb-3">
                                     <label for="description" class="form-label">Opis awarii</label>
-                                    <textarea class="form-control" id="description" name="description" rows="4"
-                                              required></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="12" required style="resize: none;"></textarea>
                                 </div>
-                                <div class="text-end  me-5">
-                                    <button type="submit" class="btn btn-primary mb-3">Dodaj technika</button>
-                                </div>
-                                <div th:if="${message}" class="alert alert-secondary" role="alert">
+                                <div th:if="${message}" class="alert alert-secondary me-5" role="alert">
                                     <span th:text="${message}"></span>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                        <div class="text-end  me-5">
+                            <button type="submit" class="btn btn-primary mb-3">Dodaj technika</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
