@@ -18,7 +18,8 @@ enum Priority {
 
 enum Status {
     DONE,
-    IN_PROGRES
+    IN_PROGRES,
+    WAITING
 }
 
 @Entity
@@ -36,7 +37,7 @@ public class Todo {
 
     String client;
 
-    boolean status;
+    Status status;
 
     LocalDateTime createTask;
 
