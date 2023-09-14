@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-enum Priority {
+public enum Priority {
     HIGH,
     MEDIUM,
     LOW
 }
 
-enum Status {
+public enum Status {
     DONE,
     IN_PROGRES,
     WAITING
