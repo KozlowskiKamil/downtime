@@ -10,23 +10,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 @SpringBootApplication
 public class DowntimeApplication {
 
-	@Bean
-	FirebaseMessaging firebaseMessaging() throws IOException {
-		GoogleCredentials googleCredentials = GoogleCredentials
-				.fromStream(new ClassPathResource("serviceAccountKey.json").getInputStream());
-		FirebaseOptions firebaseOptions = FirebaseOptions.builder()
-				.setCredentials(googleCredentials).build();
-		FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "my-App");
-		return FirebaseMessaging.getInstance(app);
-	}
+    @Bean
+    FirebaseMessaging firebaseMessaging() throws IOException {
+        GoogleCredentials googleCredentials = GoogleCredentials
+                .fromStream(new ClassPathResource("serviceAccountKey.json").getInputStream());
+        FirebaseOptions firebaseOptions = FirebaseOptions.builder()
+                .setCredentials(googleCredentials).build();
+        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "my-App");
+        return FirebaseMessaging.getInstance(app);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(DowntimeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DowntimeApplication.class, args);
+    }
 
 }

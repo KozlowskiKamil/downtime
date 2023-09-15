@@ -98,7 +98,6 @@ public class BreakdownController {
         return breakdownRepository.findAll();
     }
 
-
     @GetMapping("/ongoing")
     public List<Breakdown> findAllOngoing() {
         return breakdownRepository.findAllByOngoing(true);
