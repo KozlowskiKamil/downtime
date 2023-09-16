@@ -19,17 +19,11 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
     String task;
-
     String client;
-
     @Enumerated(EnumType.STRING)
     Status status;
-
     LocalDateTime createTask;
-
     @Enumerated(EnumType.STRING)
     Priority priority;
-
 }
