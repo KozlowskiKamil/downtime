@@ -1,11 +1,9 @@
 package com.jabil.downtime.controler;
 
-import com.jabil.downtime.BreakdownRepository;
-import com.jabil.downtime.BreakdownService;
-import com.jabil.downtime.TechnicianRepository;
-import com.jabil.downtime.TechnicianService;
+import com.jabil.downtime.*;
 import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.dto.TechnicianDto;
+import com.jabil.downtime.dto.TodoDto;
 import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,6 +23,7 @@ public class BreakedownMvc {
     private final BreakdownRepository breakdownRepository;
     private final TechnicianRepository technicianRepository;
     private final TechnicianService technicianService;
+    private final TodoService todoService;
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
@@ -61,15 +60,16 @@ public class BreakedownMvc {
 
     @GetMapping("/todo")
     public String todo(Model model) {
-        List<TechnicianDto> all = technicianService.findAllTechnican();
-        model.addAttribute("technicians", all);
+        List<TodoDto> all = todoService.findAllTodo();
+        model.addAttribute("todo", all);
         return "todo";
     }
 
-//    @PostMapping("/todo")
-//    public String addTask(@ModelAttribute) {
-//
-//    }
+    @PostMapping("/todo")
+    public String addTask(@ModelAttribute TodoDto todoDto) {
+        todoService.saveToDo(todoDto);
+        return "todo";
+    }
 
     @GetMapping("/stats")
     public String stats(Model model) {
