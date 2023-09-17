@@ -1,11 +1,9 @@
 package com.jabil.downtime.controler;
 
-import com.jabil.downtime.BreakdownRepository;
-import com.jabil.downtime.BreakdownService;
-import com.jabil.downtime.TechnicianRepository;
-import com.jabil.downtime.TechnicianService;
+import com.jabil.downtime.*;
 import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.dto.TechnicianDto;
+import com.jabil.downtime.dto.TodoDto;
 import com.jabil.downtime.model.Breakdown;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,6 +23,7 @@ public class BreakedownMvc {
     private final BreakdownRepository breakdownRepository;
     private final TechnicianRepository technicianRepository;
     private final TechnicianService technicianService;
+    private final TodoService todoService;
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
@@ -61,15 +60,18 @@ public class BreakedownMvc {
 
     @GetMapping("/todo")
     public String todo(Model model) {
-        List<TechnicianDto> all = technicianService.findAllTechnican();
-        model.addAttribute("technicians", all);
+        List<TodoDto> all = todoService.findAllTodo();
+        model.addAttribute("todos", all);
         return "todo";
     }
 
-//    @PostMapping("/todo")
-//    public String addTask(@ModelAttribute) {
-//
-//    }
+    @PostMapping("/todo")
+    public String addTask(@ModelAttribute TodoDto todoDto, Model model) {
+        todoService.saveToDo(todoDto);
+        List<TodoDto> all = todoService.findAllTodo();
+        model.addAttribute("todos", all);
+        return "todo";
+    }
 
     @GetMapping("/stats")
     public String stats(Model model) {
@@ -94,6 +96,8 @@ public class BreakedownMvc {
         List<Breakdown> breakdownEnd = breakdownService.findAllByOngoing(false);
         List<Object[]> countComputerName = breakdownRepository.findComputerNamesWithCounts();
         List<Object[]> findFailureNameWithCounts = breakdownRepository.findFailureNameWithCounts();
+        List<TodoDto> tasks = todoService.findAllTodo();
+        model.addAttribute("todos", tasks);
         model.addAttribute("breakdowns", all);
         model.addAttribute("breakdownStart", breakdownStart);
         model.addAttribute("breakdownEnd", breakdownEnd);

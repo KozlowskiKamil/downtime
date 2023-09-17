@@ -7,13 +7,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoMapper {
 
-//    public Todo fromDto(TodoDto todoDto) {
-//
-//    }
-//
-//
-//    public TodoDto todoDto(Todo todo) {
-//
-//
-//    }
+    public Todo fromDto(TodoDto todoDto) {
+        return Todo.builder()
+                .id(todoDto.getId())
+                .task(todoDto.getTask())
+                .client(todoDto.getClient())
+                .build();
+//                .status(todoDto.getStatus())
+//                .createTask(todoDto.getCreateTask())
+//                .priority(todoDto.getPriority())
+//                .build();
+    }
+
+
+    public TodoDto toTodoDto(Todo todo) {
+        return TodoDto.builder()
+                .id(todo.getId())
+                .task(todo.getTask())
+                .client(todo.getClient())
+                .build();
+//                .status(todo.getStatus())
+//                .createTask(todo.getCreateTask())
+//                .priority(todo.getPriority())
+//                .build();
+    }
 }

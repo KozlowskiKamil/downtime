@@ -46,15 +46,15 @@
                         <li class="list-group-item active" aria-current="true">Dodaj zadanie do listy</li>
                     </ul>
                     <br>
-                    <form action="/technician" method="post" style="width: 350px; margin: 0 auto">
+                    <form action="/todo" method="post" style="width: 350px; margin: 0 auto">
                         <br>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Zadanie</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+                            <label for="task" class="form-label">Do zrobienia</label>
+                            <input type="text" class="form-control" id="task" name="task" placeholder="" required>
                         </div>
                         <div class=mb-3>
-                            <label for="badgeNumber" class="form-label">Opis zadania</label>
-                            <input type="number" class="form-control" id="badgeNumber" name="badgeNumber"
+                            <label for="client" class="form-label">Zlecający</label>
+                            <input type="text" class="form-control" id="client" name="client"
                                    placeholder="" required>
                         </div>
                         <div class="mb-3">
@@ -78,16 +78,16 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Zadanie</th>
-                                <th scope="col">Opis</th>
+                                <th scope="col">Do zrobienia</th>
+                                <th scope="col">Zlecający</th>
                             </tr>
                             </thead>
                             <tbody>
-<!--                            <tr th:each="technician : ${technicians}">-->
-<!--                                <td th:text="${technician.id}"></td>-->
-<!--                                <td th:text="${technician.name}"></td>-->
-<!--                                <td th:text="${technician.badgeNumber}"></td>-->
-<!--                            </tr>-->
+                            <tr th:each="todo : ${todos}">
+                                <td th:text="${todo.id}"></td>
+                                <td th:text="${todo.task}"></td>
+                                <td th:text="${todo.client}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
