@@ -61,13 +61,15 @@ public class BreakedownMvc {
     @GetMapping("/todo")
     public String todo(Model model) {
         List<TodoDto> all = todoService.findAllTodo();
-        model.addAttribute("todo", all);
+        model.addAttribute("todos", all);
         return "todo";
     }
 
     @PostMapping("/todo")
-    public String addTask(@ModelAttribute TodoDto todoDto) {
+    public String addTask(@ModelAttribute TodoDto todoDto, Model model) {
         todoService.saveToDo(todoDto);
+        List<TodoDto> all = todoService.findAllTodo();
+        model.addAttribute("todos", all);
         return "todo";
     }
 
@@ -94,6 +96,8 @@ public class BreakedownMvc {
         List<Breakdown> breakdownEnd = breakdownService.findAllByOngoing(false);
         List<Object[]> countComputerName = breakdownRepository.findComputerNamesWithCounts();
         List<Object[]> findFailureNameWithCounts = breakdownRepository.findFailureNameWithCounts();
+        List<TodoDto> tasks = todoService.findAllTodo();
+        model.addAttribute("todos", tasks);
         model.addAttribute("breakdowns", all);
         model.addAttribute("breakdownStart", breakdownStart);
         model.addAttribute("breakdownEnd", breakdownEnd);

@@ -12,10 +12,11 @@ public class TodoMapper {
                 .id(todoDto.getId())
                 .task(todoDto.getTask())
                 .client(todoDto.getClient())
-                .status(todoDto.getStatus())
-                .createTask(todoDto.getCreateTask())
-                .priority(todoDto.getPriority())
                 .build();
+//                .status(todoDto.getStatus())
+//                .createTask(todoDto.getCreateTask())
+//                .priority(todoDto.getPriority())
+//                .build();
     }
 
 
@@ -24,9 +25,10 @@ public class TodoMapper {
                 .id(todo.getId())
                 .task(todo.getTask())
                 .client(todo.getClient())
-                .status(todo.getStatus())
-                .createTask(todo.getCreateTask())
-                .priority(todo.getPriority())
                 .build();
+//                .status(todo.getStatus())
+//                .createTask(todo.getCreateTask())
+//                .priority(todo.getPriority())
+//                .build();
     }
 }
