@@ -37,22 +37,22 @@
             <div class="col-md-6 col-12">
                 <div class="tile2">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Dodaj technika</li>
+                        <li class="list-group-item active" aria-current="true">Add a technician</li>
                     </ul>
                     <br>
                     <form action="/technician" method="post" style="width: 350px; margin: 0 auto">
                         <br>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Imię Nazwisko</label>
+                            <label for="name" class="form-label">First name Last Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="" required>
                         </div>
                         <div class=mb-3>
-                            <label for="badgeNumber" class="form-label">Numer BT</label>
+                            <label for="badgeNumber" class="form-label">Badge number</label>
                             <input type="number" class="form-control" id="badgeNumber" name="badgeNumber"
                                    placeholder="" required>
                         </div>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-primary mb-3">Dodaj technika</button>
+                            <button type="submit" class="btn btn-primary mb-3">Add a technician</button>
                         </div>
                         <div th:if="${message}" class="alert alert-secondary" role="alert">
                             <span th:text="${message}"></span>
@@ -63,7 +63,7 @@
             <div class="col-md-6 col-12">
                 <div class="tile2">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Lista techników</li>
+                        <li class="list-group-item active" aria-current="true">Technician list</li>
                     </ul>
                     <div class="scrollable-table"
                          style="max-height: 92%; width: 100%; overflow-y: auto; overflow-x: hidden;">
@@ -72,8 +72,8 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Imię Nazwisko</th>
-                                <th scope="col">BT</th>
+                                <th scope="col">First name Last Name</th>
+                                <th scope="col">Badge number</th>
                             </tr>
                             </thead>
                             <tbody>

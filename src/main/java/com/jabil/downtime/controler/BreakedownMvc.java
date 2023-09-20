@@ -104,7 +104,8 @@ public class BreakedownMvc {
         List<Object[]> countComputerName = breakdownRepository.findComputerNamesWithCounts();
         List<Object[]> findFailureNameWithCounts = breakdownRepository.findFailureNameWithCounts();
         List<TodoDto> tasks = todoService.findAllTodo();
-        model.addAttribute("todos", tasks);
+        List<TodoDto> firstTasks = tasks.subList(0, Math.min(tasks.size(), 5));
+        model.addAttribute("todos", firstTasks);
         model.addAttribute("breakdowns", all);
         model.addAttribute("breakdownStart", breakdownStart);
         model.addAttribute("breakdownEnd", breakdownEnd);
