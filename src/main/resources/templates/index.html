@@ -43,7 +43,7 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Otwarte awarie</li>
+                        <li class="list-group-item active" aria-current="true">Open failures</li>
                     </ul>
                     <ul>
                         <li th:each="breakdown, iterStat : ${breakdownStart}" th:if="${iterStat.index < 5}">
@@ -89,7 +89,7 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Zamknięte awarie</li>
+                        <li class="list-group-item active" aria-current="true">Close failures</li>
                     </ul>
                     <ul>
                         <li th:each="breakdown, iterStat : ${breakdownEnd}" th:if="${iterStat.index < 5}">
