@@ -42,12 +42,8 @@ public class BreakedownMvc {
     }
 
     @PostMapping("/addbreakdown")
-    public String addbreakdown(@ModelAttribute BreakdownDto breakdownDto, Model model) {
+    public String addbreakdown(@ModelAttribute BreakdownDto breakdownDto) {
         breakdownService.saveBreakdown(breakdownDto);
-//        List<BreakdownDto> all = breakdownService.findAllDistinct();
-//        model.addAttribute("breakdowns", all);
-//        List<TechnicianDto> allTechnican = technicianService.findAllTechnican();
-//        model.addAttribute("technicians", allTechnican);
         return "addbreakdown";
     }
 
@@ -103,8 +99,6 @@ public class BreakedownMvc {
         model.addAttribute("breakdownEnd", breakdownEnd);
         model.addAttribute("computerNamesWithCounts", countComputerName);
         model.addAttribute("findFailureNameWithCounts", findFailureNameWithCounts);
-
         return "index";
     }
-
 }

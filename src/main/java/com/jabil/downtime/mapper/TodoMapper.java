@@ -13,11 +13,9 @@ public class TodoMapper {
                 .task(todoDto.getTask())
                 .client(todoDto.getClient())
                 .status(todoDto.getStatus())
-//                .createTask(todoDto.getCreateTask())
                 .priority(todoDto.getPriority())
                 .build();
     }
-
 
     public TodoDto toTodoDto(Todo todo) {
         return TodoDto.builder()
@@ -26,7 +24,6 @@ public class TodoMapper {
                 .client(todo.getClient())
                 .status(todo.getStatus())
                 .priority(todo.getPriority())
-                //                .createTask(todo.getCreateTask())
                 .build();
     }
 }

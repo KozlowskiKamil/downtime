@@ -6,6 +6,7 @@ body {
 }
 
 ul {
+    padding-bottom: 10px;
     list-style-type: none;
 }
 
@@ -36,25 +37,13 @@ ul {
 
 .tile1:hover {
     box-shadow: 1px 1px 4px 1px rgba(66, 68, 90, 1);
-    /*background-color: #fdfdfe;*/
-    /*cursor: pointer;*/
 }
 
-.tile1:active {
-    /*background-color: #fdfdfe;*/
-    /*cursor: pointer;*/
-}
 
 .tile2:hover {
     box-shadow: 1px 1px 4px 1px rgba(66, 68, 90, 1);
-    /*background-color: #fdfdfe;*/
-    /*cursor: pointer;*/
 }
 
-.tile2:active {
-    /*background-color: #fdfdfe;*/
-    /*cursor: pointer;*/
-}
 
 .menubar {
     background-color: #fdfdfe;
@@ -88,24 +77,8 @@ ul.list-group li.active {
     background-color: #54c0e8ff;
     border: none;
 }
+
 .btn-primary:hover {
     background-color: #42b4d6ff;
 }
 
-
-
-/*.scrollable-table {*/
-/*    max-height: 400px; !* Ustaw maksymalną wysokość listy *!*/
-/*    overflow-y: auto; !* Dodaj pionowy pasek przewijania, jeśli tabela jest większa niż kontener *!*/
-/*    width: 107%;*/
-/*    overflow-x: hidden;*/
-/*}*/
-
-/*tbody {*/
-/*    height: 80em;*/
-/*    overflow: scroll;*/
-/*}*/
-
-/*table.table tbody tr {*/
-/*    height: 15px;*/
-/*}*/

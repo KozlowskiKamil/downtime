@@ -121,5 +121,4 @@ public class BreakdownService {
         return breakdownRepository.findAllByComputerNameAndFailureNameOrderByFailureStartTimeDesc(computerName, failureName);
     }
 
-
 }
