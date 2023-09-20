@@ -65,7 +65,8 @@
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
                                     <label for="failureStartTime" class="form-label">Date and time</label>
-                                    <input type="datetime-local" class="form-control" id="failureStartTime" name="failureStartTime"
+                                    <input type="datetime-local" class="form-control" id="failureStartTime"
+                                           name="failureStartTime"
                                            placeholder="" required>
                                 </div>
                                 <div class="col-auto ms-5 mb-3">
@@ -83,7 +84,8 @@
                                 <br>
                                 <div class="col-auto me-5 mb-3">
                                     <label for="description" class="form-label">Failure description</label>
-                                    <textarea class="form-control" id="description" name="description" rows="12" required style="resize: none;"></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="12"
+                                              required style="resize: none;"></textarea>
                                 </div>
                                 <div th:if="${message}" class="alert alert-secondary me-5" role="alert">
                                     <span th:text="${message}"></span>
