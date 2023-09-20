@@ -18,7 +18,7 @@ public class TodoDto {
     Long id;
     String task;
     String client;
-//    Status status;
+    Status status;
 //    LocalDateTime createTask;
-//    Priority priority;
+    Priority priority;
 }

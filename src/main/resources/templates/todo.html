@@ -49,16 +49,24 @@
                     <form action="/todo" method="post" style="width: 350px; margin: 0 auto">
                         <br>
                         <div class="mb-3">
-                            <label for="task" class="form-label">Do zrobienia</label>
+                            <label for="task" class="form-label">What to do</label>
                             <input type="text" class="form-control" id="task" name="task" placeholder="" required>
                         </div>
                         <div class=mb-3>
-                            <label for="client" class="form-label">Zlecający</label>
+                            <label for="client" class="form-label">Who orders?</label>
                             <input type="text" class="form-control" id="client" name="client"
                                    placeholder="" required>
                         </div>
+                        <div class=mb-3>
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status" required>
+                            <option value="LOW">Low</option>
+                            <option value="HIGH">High</option>
+                            <option value="MEDIUM">Medium</option>
+                        </select>
+                        </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary mb-3">Dodaj zadanie</button>
+                            <button type="submit" class="btn btn-primary mb-3">Add task</button>
                         </div>
                         <div th:if="${message}" class="alert alert-secondary" role="alert">
                             <span th:text="${message}"></span>

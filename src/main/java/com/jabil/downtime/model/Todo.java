@@ -22,9 +22,9 @@ public class Todo {
 
     String task;
     String client;
-//    @Enumerated(EnumType.STRING)
-//    Status status;
-//    LocalDateTime createTask;
-//    @Enumerated(EnumType.STRING)
-//    Priority priority;
+
+    @Enumerated(EnumType.STRING)
+    Status status;
+    @Enumerated(EnumType.STRING)
+    Priority priority;
 }
