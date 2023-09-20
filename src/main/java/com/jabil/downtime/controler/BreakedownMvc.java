@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -57,6 +58,8 @@ public class BreakedownMvc {
     @GetMapping("/todo")
     public String todo(Model model) {
         List<TodoDto> all = todoService.findAllTodo();
+        List<TechnicianDto> technicianDtoList = technicianService.findAllTechnican();
+        model.addAttribute("technicians", technicianDtoList);
         model.addAttribute("todos", all);
         return "todo";
     }
@@ -65,8 +68,16 @@ public class BreakedownMvc {
     public String addTask(@ModelAttribute TodoDto todoDto, Model model) {
         todoService.saveToDo(todoDto);
         List<TodoDto> all = todoService.findAllTodo();
+        List<TechnicianDto> technicianDtoList = technicianService.findAllTechnican();
+        model.addAttribute("technicians", technicianDtoList);
         model.addAttribute("todos", all);
         return "todo";
+    }
+
+    @PostMapping("/deletetask")
+    public String deleteTask(@RequestParam Long taskId) {
+        todoService.deleteTask(taskId);
+        return "redirect:/todo";
     }
 
     @GetMapping("/stats")

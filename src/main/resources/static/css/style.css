@@ -82,3 +82,7 @@ ul.list-group li.active {
     background-color: #42b4d6ff;
 }
 
+.result {
+    text-align: center;
+}
+

@@ -30,8 +30,8 @@ public class TodoService {
         return todoMapper.toTodoDto(saveTodo);
     }
 
-    public void delateTask(Long taskId) {
-        todoRepository.deleteAllById(taskId);
+    public void deleteTask(Long taskId) {
+        todoRepository.deleteById(taskId);
     }
 
 }

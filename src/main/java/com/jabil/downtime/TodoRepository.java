@@ -11,9 +11,4 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
 
-    void deleteAllById(Long taskId);
-
-
-
-
 }

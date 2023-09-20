@@ -21,10 +21,9 @@ public class Todo {
     Long id;
 
     String task;
+
     String client;
 
-    @Enumerated(EnumType.STRING)
-    Status status;
     @Enumerated(EnumType.STRING)
     Priority priority;
 }
