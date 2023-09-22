@@ -87,6 +87,11 @@ public class BreakedownMvc {
         return "stats";
     }
 
+    @GetMapping("/help")
+    public String help() {
+        return "help";
+    }
+
     @PostMapping("/technician")
     public String addTechnician(@ModelAttribute TechnicianDto technicianDto, Model model) {
         String s = technicianService.registerUserId(technicianDto);
