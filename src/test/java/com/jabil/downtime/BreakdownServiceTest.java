@@ -28,6 +28,10 @@ public class BreakdownServiceTest {
     @Mock
     private BreakdownMapper breakdownMapper;
 
+    @Test
+    void contextLoads() {
+    }
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
