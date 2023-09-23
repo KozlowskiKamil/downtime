@@ -30,7 +30,7 @@ public class BreakedownMvc {
 
     @GetMapping("/list")
     public String breakedownList(Model model) {
-        List<BreakdownDto> all = breakdownService.findAllDescending();
+        List<Breakdown> all = breakdownRepository.findAllByOngoingOrderByFailureStartTimeDesc(false);
         List<TechnicianDto> technicianDtoList = technicianService.findAllTechnican();
         model.addAttribute("technicianDtoList", technicianDtoList);
         model.addAttribute("breakdowns", all);

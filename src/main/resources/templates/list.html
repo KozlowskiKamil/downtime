@@ -46,24 +46,61 @@
                         <table class="table table-hover table-borderless table1">
                             <thead class="thead-light">
                             <tr>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Computer</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Description</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Downtime</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Waiting Time</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure Start</th>
-                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure End</th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Computer
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Failure
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Description
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Downtime
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Waiting time
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Failure start
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Failure end
+                                </th>
+                                <th class="result"
+                                    style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;"
+                                    scope="col">Technician name
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr th:each="breakdown : ${breakdowns}">
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.computerName}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureName}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.description}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.counter}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.waitingTime / 60}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${#temporals.format(breakdown.failureStartTime, 'dd.MM.yy - HH:mm')}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${#temporals.format(breakdown.failureEndTime, 'dd.MM.yy - HH:mm')}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${breakdown.computerName}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${breakdown.failureName}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${breakdown.description}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${breakdown.counter}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${breakdown.waitingTime / 60}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${#temporals.format(breakdown.failureStartTime, 'dd.MM.yy - HH:mm')}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:text="${#temporals.format(breakdown.failureEndTime, 'dd.MM.yy - HH:mm')}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:if="${breakdown.technician != null}" th:text="${breakdown.technician.name}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small"
+                                    th:unless="${breakdown.technician != null}">No Assigned
+                                </td>
                             </tr>
                             </tbody>
                         </table>

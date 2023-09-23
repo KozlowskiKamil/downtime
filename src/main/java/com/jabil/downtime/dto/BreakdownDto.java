@@ -24,8 +24,6 @@ public class BreakdownDto {
     private long waitingTime;
     private LocalDateTime failureStartTime;
     private LocalDateTime failureEndTime;
-    private Technician technician;
-
 
     public BreakdownDto(String failureName, String computerName) {
         this.failureName = failureName;
