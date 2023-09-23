@@ -63,12 +63,9 @@
                                 <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.description}"></td>
                                 <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.ongoing}"></td>
                                 <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.counter}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.waitingTime}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureStartTime}"></td>
-                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureEndTime}"></td>
-                                <!--                        <td th:text="${#dates.format(breakdown.failureStartTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-                                <!--                        <td th:text="${#dates.format(breakdown.failureEndTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.waitingTime / 60}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${#temporals.format(breakdown.failureStartTime, 'dd.MM.yy - HH:mm')}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${#temporals.format(breakdown.failureEndTime, 'dd.MM.yy - HH:mm')}"></td>
                             </tr>
                             </tbody>
                         </table>

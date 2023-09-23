@@ -1,5 +1,6 @@
 package com.jabil.downtime.dto;
 
+import com.jabil.downtime.model.Technician;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,8 +23,8 @@ public class BreakdownDto {
     private long counter;
     private long waitingTime;
     private LocalDateTime failureStartTime;
-
     private LocalDateTime failureEndTime;
+    private Technician technician;
 
 
     public BreakdownDto(String failureName, String computerName) {

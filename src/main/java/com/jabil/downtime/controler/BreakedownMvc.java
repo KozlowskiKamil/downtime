@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Controller
@@ -29,6 +31,8 @@ public class BreakedownMvc {
     @GetMapping("/list")
     public String breakedownList(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDescending();
+        List<TechnicianDto> technicianDtoList = technicianService.findAllTechnican();
+        model.addAttribute("technicianDtoList", technicianDtoList);
         model.addAttribute("breakdowns", all);
         return "list";
     }
@@ -37,14 +41,15 @@ public class BreakedownMvc {
     public String breakdown(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDistinct();
         model.addAttribute("breakdowns", all);
-        List<TechnicianDto> allTechnican = technicianService.findAllTechnican();
-        model.addAttribute("technicians", allTechnican);
         return "addbreakdown";
     }
 
     @PostMapping("/addbreakdown")
     public String addbreakdown(@ModelAttribute BreakdownDto breakdownDto) {
         breakdownDto.setWaitingTime(breakdownDto.getWaitingTime() * 60);
+        LocalDateTime startTime = breakdownDto.getFailureStartTime();
+        LocalDateTime endTime = startTime.plus(breakdownDto.getCounter(), ChronoUnit.MINUTES);
+        breakdownDto.setFailureEndTime(endTime);
         breakdownService.saveBreakdown(breakdownDto);
         return "addbreakdown";
     }
