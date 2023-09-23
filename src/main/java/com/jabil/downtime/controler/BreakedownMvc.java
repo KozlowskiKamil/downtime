@@ -40,6 +40,8 @@ public class BreakedownMvc {
     @GetMapping("/addbreakdown")
     public String breakdown(Model model) {
         List<BreakdownDto> all = breakdownService.findAllDistinct();
+        List<TechnicianDto> allTechnican = technicianService.findAllTechnican();
+        model.addAttribute("technicians", allTechnican);
         model.addAttribute("breakdowns", all);
         return "addbreakdown";
     }
@@ -90,6 +92,8 @@ public class BreakedownMvc {
     public String stats(Model model) {
         List<TechnicianDto> all = technicianService.findAllTechnican();
         model.addAttribute("technicians", all);
+        List<Object[]> findTopFailureNamesToday = breakdownRepository.findTopFailureNamesToday();
+        model.addAttribute("findTopFailureNamesToday", findTopFailureNamesToday);
         return "stats";
     }
 
