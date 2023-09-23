@@ -43,29 +43,29 @@
                     </ul>
                     <div class="scrollable-table"
                          style="max-height: 92%; width: 100%; overflow-y: auto; overflow-x: hidden;">
-                        <table class="table table-striped table-hover table1">
+                        <table class="table table-hover table-borderless table1">
                             <thead class="thead-light">
                             <tr>
-                                <th style="white-space: nowrap;" scope="col">Computer</th>
-                                <th style="white-space: nowrap;" scope="col">Failure</th>
-                                <th style="white-space: nowrap;" scope="col">Description</th>
-                                <th style="white-space: nowrap;" scope="col">In progres</th>
-                                <th style="white-space: nowrap;" scope="col">Downtime</th>
-                                <th style="white-space: nowrap;" scope="col">Waiting Time</th>
-                                <th style="white-space: nowrap;" scope="col">Failure Start</th>
-                                <th style="white-space: nowrap;" scope="col">Failure End</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Computer</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Description</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">In progres</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Downtime</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Waiting Time</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure Start</th>
+                                <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder; white-space: nowrap;" scope="col">Failure End</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr th:each="breakdown : ${breakdowns}">
-                                <td th:text="${breakdown.computerName}"></td>
-                                <td th:text="${breakdown.failureName}"></td>
-                                <td th:text="${breakdown.description}"></td>
-                                <td th:text="${breakdown.ongoing}"></td>
-                                <td th:text="${breakdown.counter}"></td>
-                                <td th:text="${breakdown.waitingTime}"></td>
-                                <td th:text="${breakdown.failureStartTime}"></td>
-                                <td th:text="${breakdown.failureEndTime}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.computerName}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureName}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.description}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.ongoing}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.counter}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.waitingTime}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureStartTime}"></td>
+                                <td class="result" style="color: #003d6bff; font-size: small" th:text="${breakdown.failureEndTime}"></td>
                                 <!--                        <td th:text="${#dates.format(breakdown.failureStartTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
                                 <!--                        <td th:text="${#dates.format(breakdown.failureEndTime, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
 

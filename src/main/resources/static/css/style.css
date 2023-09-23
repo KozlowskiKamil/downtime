@@ -6,7 +6,7 @@ body {
 }
 
 ul {
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     list-style-type: none;
 }
 
@@ -86,3 +86,4 @@ ul.list-group li.active {
     text-align: center;
 }
 
+.table

@@ -44,6 +44,7 @@ public class BreakedownMvc {
 
     @PostMapping("/addbreakdown")
     public String addbreakdown(@ModelAttribute BreakdownDto breakdownDto) {
+        breakdownDto.setWaitingTime(breakdownDto.getWaitingTime() * 60);
         breakdownService.saveBreakdown(breakdownDto);
         return "addbreakdown";
     }
