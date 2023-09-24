@@ -163,17 +163,24 @@
                         <thead class="thead-light">
                         <tr>
                             <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
-                                scope="col">Task</th>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Client</th>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Priority</th>
+                                scope="col">Task
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Client
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Priority
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="todos, iterStat : ${todo}"
                             th:if="${iterStat.index < 5}">
                             <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.task}"></td>
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.client}"></td>
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.priority}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${todos.client}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${todos.priority}"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -187,14 +194,24 @@
                     <table class="table table-hover table-borderless">
                         <thead class="thead-light">
                         <tr>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Technician</th>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Count</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Technician
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Number of failures
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Total of all downtime</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="technicianCount : ${technicianCounts}">
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${technicianCount[0]}"></td>
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${technicianCount[1]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${technicianCount[0]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${technicianCount[1]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${technicianCount[2]}"></td>
                         </tr>
                         </tbody>
                     </table>

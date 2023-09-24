@@ -98,7 +98,7 @@ public class BreakedownMvc {
         List<Breakdown> findAllSortedByMaxWaitingTimeForComputerName = breakdownRepository.findAllSortedByMaxWaitingTimeForComputerName();
         List<Breakdown> MaxCounterForFailureName = breakdownRepository.findAllSortedByMaxCounterForFailureName();
         List<Object[]> findTopFailureNamesForLast7Days = breakdownService.findTopFailureNamesForLast7Days();
-        List<Object[]> technicianCounts = breakdownRepository.findAllSortedByTechnicianCount();
+        List<Object[]> technicianCounts = breakdownRepository.findAllSortedByTechnicianCountWithTotalCounter();
         model.addAttribute("findTopFailureNamesToday", findTopFailureNamesToday);
         model.addAttribute("findTopFailureNamesForLast7Days", findTopFailureNamesForLast7Days);
         model.addAttribute("findAllSortedByMaxWaitingTimeForComputerName", findAllSortedByMaxWaitingTimeForComputerName);
