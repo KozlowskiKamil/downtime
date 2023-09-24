@@ -43,7 +43,7 @@ public class TechnicianService {
 
         TechnicianDto savedUser = registerTechnician(technicianDto);
         if (savedUser != null) {
-            return "Dodano: " + technicianDto.getName();
+            return "Add: " + technicianDto.getName();
         } else {
             return "Wystąpił problem podczas rejestracji użytkownika";
         }
