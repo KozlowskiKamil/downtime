@@ -109,4 +109,11 @@ public class BreakdownService {
         return breakdownRepository.findAllByComputerNameAndFailureNameOrderByFailureStartTimeDesc(computerName, failureName);
     }
 
+
+    public List<Object[]> findTopFailureNamesForLast7Days() {
+        LocalDateTime endDate = LocalDateTime.now();
+        LocalDateTime startDate = endDate.minusDays(7);
+        return breakdownRepository.findTopFailureNamesWithinDateRange(startDate, endDate);
+    }
+
 }

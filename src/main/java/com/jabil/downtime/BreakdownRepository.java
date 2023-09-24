@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -30,6 +31,13 @@ public interface BreakdownRepository extends JpaRepository<Breakdown, Long> {
 
 
 
+    @Query("SELECT b.failureName, COUNT(b) AS failureCount " +
+            "FROM Breakdown b " +
+            "WHERE b.failureStartTime >= :startDate " +
+            "  AND b.failureStartTime <= :endDate " +
+            "GROUP BY b.failureName " +
+            "ORDER BY failureCount DESC")
+    List<Object[]> findTopFailureNamesWithinDateRange(LocalDateTime startDate, LocalDateTime endDate);
 
 
 

@@ -93,7 +93,9 @@ public class BreakedownMvc {
         List<TechnicianDto> all = technicianService.findAllTechnican();
         model.addAttribute("technicians", all);
         List<Object[]> findTopFailureNamesToday = breakdownRepository.findTopFailureNamesToday();
+        List<Object[]> findTopFailureNamesForLast7Days = breakdownService.findTopFailureNamesForLast7Days();
         model.addAttribute("findTopFailureNamesToday", findTopFailureNamesToday);
+        model.addAttribute("findTopFailureNamesForLast7Days", findTopFailureNamesForLast7Days);
         return "stats";
     }
 
