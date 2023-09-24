@@ -39,7 +39,6 @@ public class BreakdownService {
         breakdownRepository.save(breakdown);
     }
 
-
     public List<BreakdownDto> findAll() {
         return breakdownRepository.findAll().stream().map(breakdownMapper::toDto).collect(Collectors.toList());
     }
@@ -58,7 +57,6 @@ public class BreakdownService {
         return result;
     }
 
-
     public List<BreakdownDto> findAllDescending() {
         Sort descendingSort = Sort.by(Sort.Direction.DESC, "failureStartTime");
         return breakdownRepository.findAll(descendingSort).stream().map(breakdownMapper::toDto).collect(Collectors.toList());
@@ -73,11 +71,6 @@ public class BreakdownService {
         Breakdown breakdownById = breakdownRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Brak awarii o takim id"));
         return breakdownMapper.toDto(breakdownById);
     }
-
-//    public BreakdownDto saveBreakdown(BreakdownDto breakdownDto) {
-//        breakdownRepository.save(breakdownMapper.fromDto(breakdownDto));
-//        return breakdownDto;
-//    }
 
     public BreakdownDto saveBreakdown(BreakdownDto breakdownDto) {
         Breakdown savedBreakdown = breakdownRepository.save(breakdownMapper.fromDto(breakdownDto));
@@ -107,11 +100,6 @@ public class BreakdownService {
     public void deleteById(Long id) {
         breakdownRepository.deleteById(id);
     }
-
-
-//    public List<Breakdown> findAllByOngoing(boolean ongoing) {
-//        return breakdownRepository.findAllByOngoing(ongoing);
-//    }
 
     public List<Breakdown> findAllByOngoing(boolean ongoing) {
         return breakdownRepository.findAllByOngoingOrderByFailureStartTimeDesc(ongoing);
