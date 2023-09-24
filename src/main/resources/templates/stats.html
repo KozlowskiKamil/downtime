@@ -28,7 +28,8 @@
             <div><a th:href="@{addbreakdown}" target="_self" class="navigation"><i class="icon-laptop"></i></a></div>
             <div><a th:href="@{list}" target="_self" class="navigation"><i class="icon-list-numbered"></i></a></div>
             <div><a th:href="@{todo}" target="_self" class="navigation"><i class="icon-clipboard"></i></a></div>
-            <div><a th:href="@{technician}" target="_self" class="navigation"><i class="icon-address-card-o"></i></a></div>
+            <div><a th:href="@{technician}" target="_self" class="navigation"><i class="icon-address-card-o"></i></a>
+            </div>
             <div><a th:href="@{stats}" target="_self" class="navigation"><i class="icon-chart-bar"></i></a></div>
             <div><a th:href="@{help}" target="_self" class="navigation"><i class="icon-help-circled"></i></a></div>
         </div>
@@ -45,16 +46,21 @@
                     <table class="table table-hover table-borderless">
                         <thead class="thead-light">
                         <tr>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Failure name
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Failure name
                             </th>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Count</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Count
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="findTopFailureNamesTodays, iterStat : ${findTopFailureNamesToday}"
                             th:if="${iterStat.index < 6}">
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${findTopFailureNamesTodays[0]}"></td>
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${findTopFailureNamesTodays[1]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findTopFailureNamesTodays[0]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findTopFailureNamesTodays[1]}"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -69,16 +75,21 @@
                     <table class="table table-hover table-borderless">
                         <thead class="thead-light">
                         <tr>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Failure name
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Failure name
                             </th>
-                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Count</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Count
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="findTopFailureNamesForLast7Day, iterStat : ${findTopFailureNamesForLast7Days}"
                             th:if="${iterStat.index < 5}">
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${findTopFailureNamesForLast7Day[0]}"></td>
-                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${findTopFailureNamesForLast7Day[1]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findTopFailureNamesForLast7Day[0]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findTopFailureNamesForLast7Day[1]}"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -87,15 +98,29 @@
             <div class="col-md-3 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Top 5 NCR</li>
+                        <li class="list-group-item active" aria-current="true">Top 5 waiting ime</li>
                     </ul>
-                    <ul>
-<!--                        <li th:each="findFailureNameWithCounts, iterStat : ${findFailureNameWithCounts}"-->
-<!--                            th:if="${iterStat.index < 5}">-->
-<!--                            <span th:text="${findFailureNameWithCounts[1]}"></span> - -->
-<!--                            <span th:text="${findFailureNameWithCounts[0]}"></span>-->
-<!--                        </li>-->
-                    </ul>
+                    <table class="table table-hover table-borderless">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Computer name
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Waiting time
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="findAllSortedByMaxWaitingTimeForComputerNames, iterStat : ${findAllSortedByMaxWaitingTimeForComputerName}"
+                            th:if="${iterStat.index < 5}">
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findAllSortedByMaxWaitingTimeForComputerNames.computerName}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${findAllSortedByMaxWaitingTimeForComputerNames.waitingTime / 60}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-md-3 col-12">
@@ -103,13 +128,27 @@
                     <ul class="list-group">
                         <li class="list-group-item active" aria-current="true">Top 5 Downtime</li>
                     </ul>
-                    <ul>
-<!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
-<!--                            th:if="${iterStat.index < 5}">-->
-<!--                            <span th:text="${computerNameWithCount[1]}"></span> - -->
-<!--                            <span th:text="${computerNameWithCount[0]}"></span>-->
-<!--                        </li>-->
-                    </ul>
+                    <table class="table table-hover table-borderless">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Failure name
+                            </th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Downtime
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="MaxCounterForFailureNames, iterStat : ${MaxCounterForFailureName}"
+                            th:if="${iterStat.index < 5}">
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${MaxCounterForFailureNames.failureName}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small"
+                                th:text="${MaxCounterForFailureNames.counter}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -120,14 +159,24 @@
                     <ul class="list-group">
                         <li class="list-group-item active" aria-current="true">Important to do</li>
                     </ul>
-                    <ul>
-<!--                        <li th:each="breakdown, iterStat : ${breakdownEnd}" th:if="${iterStat.index < 5}">-->
-<!--                            <span th:text="${breakdown.id}"></span> - -->
-<!--                            <span th:text="${breakdown.failureName}"></span> - -->
-<!--                            <span th:text="${breakdown.computerName}"></span> - -->
-<!--                            <span th:text="${breakdown.counter}"></span>-->
-<!--                        </li>-->
-                    </ul>
+                    <table class="table table-hover table-borderless">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder"
+                                scope="col">Task</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Client</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Priority</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="todos, iterStat : ${todo}"
+                            th:if="${iterStat.index < 5}">
+                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.task}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.client}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${todos.priority}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-md-6 col-12">
@@ -136,11 +185,11 @@
                         <li class="list-group-item active" aria-current="true">Other</li>
                     </ul>
                     <ul>
-<!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
-<!--                            th:if="${iterStat.index < 2}">-->
-<!--                            <span th:text="${computerNameWithCount[0]}"></span> - -->
-<!--                            <span th:text="${computerNameWithCount[1]}"></span>-->
-<!--                        </li>-->
+                        <!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
+                        <!--                            th:if="${iterStat.index < 2}">-->
+                        <!--                            <span th:text="${computerNameWithCount[0]}"></span> - -->
+                        <!--                            <span th:text="${computerNameWithCount[1]}"></span>-->
+                        <!--                        </li>-->
                     </ul>
                 </div>
             </div>

@@ -5,6 +5,8 @@ import com.jabil.downtime.dto.BreakdownDto;
 import com.jabil.downtime.dto.TechnicianDto;
 import com.jabil.downtime.dto.TodoDto;
 import com.jabil.downtime.model.Breakdown;
+import com.jabil.downtime.model.Priority;
+import com.jabil.downtime.model.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,12 +92,18 @@ public class BreakedownMvc {
 
     @GetMapping("/stats")
     public String stats(Model model) {
+        List<TodoDto> todo = todoService.findAllByPriority(Priority.HIGH);
         List<TechnicianDto> all = technicianService.findAllTechnican();
-        model.addAttribute("technicians", all);
         List<Object[]> findTopFailureNamesToday = breakdownRepository.findTopFailureNamesToday();
+        List<Breakdown> findAllSortedByMaxWaitingTimeForComputerName = breakdownRepository.findAllSortedByMaxWaitingTimeForComputerName();
+        List<Breakdown> MaxCounterForFailureName = breakdownRepository.findAllSortedByMaxCounterForFailureName();
         List<Object[]> findTopFailureNamesForLast7Days = breakdownService.findTopFailureNamesForLast7Days();
         model.addAttribute("findTopFailureNamesToday", findTopFailureNamesToday);
         model.addAttribute("findTopFailureNamesForLast7Days", findTopFailureNamesForLast7Days);
+        model.addAttribute("findAllSortedByMaxWaitingTimeForComputerName", findAllSortedByMaxWaitingTimeForComputerName);
+        model.addAttribute("MaxCounterForFailureName", MaxCounterForFailureName);
+        model.addAttribute("technicians", all);
+        model.addAttribute("todo", todo);
         return "stats";
     }
 

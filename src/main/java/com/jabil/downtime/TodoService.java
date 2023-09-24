@@ -1,9 +1,8 @@
 package com.jabil.downtime;
 
-import com.jabil.downtime.dto.TechnicianDto;
 import com.jabil.downtime.dto.TodoDto;
 import com.jabil.downtime.mapper.TodoMapper;
-import com.jabil.downtime.model.Technician;
+import com.jabil.downtime.model.Priority;
 import com.jabil.downtime.model.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,4 +33,10 @@ public class TodoService {
         todoRepository.deleteById(taskId);
     }
 
+    public List<TodoDto> findAllByPriority(Priority priority) {
+        List<Todo> todosByPriority = todoRepository.findAllByPriority(priority);
+        return todosByPriority.stream()
+                .map(todoMapper::toTodoDto)
+                .collect(Collectors.toList());
+    }
 }
