@@ -38,14 +38,14 @@ public class TechnicianService {
     public String registerUserId(TechnicianDto technicianDto) {
         boolean userExist = technicianExist(technicianDto);
         if (userExist) {
-            return "Technik o BT: " + technicianDto.getBadgeNumber() + " już istnieje";
+            return "Technician BT: " + technicianDto.getBadgeNumber() + " already exists";
         }
 
         TechnicianDto savedUser = registerTechnician(technicianDto);
         if (savedUser != null) {
             return "Add: " + technicianDto.getName();
         } else {
-            return "Wystąpił problem podczas rejestracji użytkownika";
+            return "There was a problem registering the user";
         }
     }
 
@@ -76,7 +76,7 @@ public class TechnicianService {
         Optional<Technician> technicianById = technicianRepository.findById(technicianDto.getId());
 
         if (!technicianById.isPresent()) {
-            throw new IllegalArgumentException("Brak technika o takim id");
+            throw new IllegalArgumentException("There is no technician with this id");
         }
         Technician tuUpdate = technicianById.get();
         tuUpdate.setName(technicianDto.getName());

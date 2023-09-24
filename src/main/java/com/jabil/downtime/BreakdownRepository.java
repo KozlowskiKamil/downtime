@@ -47,4 +47,10 @@ public interface BreakdownRepository extends JpaRepository<Breakdown, Long> {
     @Query("SELECT b FROM Breakdown b " + "ORDER BY b.counter DESC")
     List<Breakdown> findAllSortedByMaxCounterForFailureName();
 
+    @Query("SELECT b.technician.name, COUNT(b) AS techCount " +
+            "FROM Breakdown b " +
+            "GROUP BY b.technician.name " +
+            "ORDER BY techCount DESC")
+    List<Object[]> findAllSortedByTechnicianCount();
+
 }

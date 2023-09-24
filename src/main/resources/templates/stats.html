@@ -182,15 +182,22 @@
             <div class="col-md-6 col-12">
                 <div class="tile1">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Other</li>
+                        <li class="list-group-item active" aria-current="true">Technician with Most Breakdowns</li>
                     </ul>
-                    <ul>
-                        <!--                        <li th:each="computerNameWithCount, iterStat : ${computerNamesWithCounts}"-->
-                        <!--                            th:if="${iterStat.index < 2}">-->
-                        <!--                            <span th:text="${computerNameWithCount[0]}"></span> - -->
-                        <!--                            <span th:text="${computerNameWithCount[1]}"></span>-->
-                        <!--                        </li>-->
-                    </ul>
+                    <table class="table table-hover table-borderless">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Technician</th>
+                            <th class="result" style="color: #003d6bff; font-size: small; font-weight: bolder" scope="col">Count</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="technicianCount : ${technicianCounts}">
+                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${technicianCount[0]}"></td>
+                            <td class="result" style="color: #003d6bff; font-size: small" th:text="${technicianCount[1]}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
